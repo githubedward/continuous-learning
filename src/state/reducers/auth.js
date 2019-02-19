@@ -10,6 +10,7 @@ export default function auth(
   },
   action
 ) {
+  if (!action) return state;
   switch (action.type) {
     case HANDLE_USERNAME:
       return {
