@@ -1,18 +1,19 @@
 import React, { Component } from "react";
 import GlobalStyle from "./themes/GlobalStyle";
-import styled from "styled-components";
+import { Provider } from "react-redux";
+import SignupContainer from "./components/Auth/SignupContainer";
+import configureStore from "./state/store/store";
 
-const Test = styled.div`
-  color: black;
-`;
+const store = configureStore();
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <Provider store={store}>
         <GlobalStyle />
+        <SignupContainer />
         <h1>Hello World!</h1>
-      </div>
+      </Provider>
     );
   }
 }

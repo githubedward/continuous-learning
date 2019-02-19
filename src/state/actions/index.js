@@ -1,16 +1,16 @@
 import * as types from "./types";
 
 // sync creators
-export function handleUsername(input) {
+export function handleUsername(e) {
   return {
     type: types.HANDLE_USERNAME,
-    input
+    input: e.target.value
   };
 }
 
-export function handlePassword(input) {
+export function handlePassword(e) {
   return {
     type: types.HANDLE_PASSWORD,
-    input
+    input: e.target.value
   };
 }
