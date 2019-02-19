@@ -10,12 +10,12 @@ import {
   Span
 } from "./AuthStyles";
 
-const Signup = ({ handleUsername, handlePassword, username, password }) => {
+const Login = ({ handleUsername, handlePassword, username, password }) => {
   return (
     <Container>
       <Form>
         <Title>
-          <Span>Signup</Span>
+          <Span>Login</Span>
         </Title>
         <Label>
           Username:
@@ -35,24 +35,24 @@ const Signup = ({ handleUsername, handlePassword, username, password }) => {
             onChange={handlePassword}
           />
         </Label>
-        <Button>Signup</Button>
+        <Button>Login</Button>
       </Form>
     </Container>
   );
 };
 
-Signup.propTypes = {
+Login.propTypes = {
   handleUsername: PropTypes.func.isRequired,
   handlePassword: PropTypes.func.isRequired,
   username: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired
 };
 
-Signup.defaultProps = {
+Login.defaultProps = {
   handleUsername: () => alert("default"),
   handlePassword: () => alert("default"),
   username: "default",
   password: "default"
 };
 
-export default Signup;
+export default Login;

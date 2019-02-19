@@ -14,3 +14,10 @@ export function handlePassword(e) {
     input: e.target.value
   };
 }
+
+export function handleSignup(data) {
+  return {
+    type: types.HANDLE_SIGNUP,
+    data
+  };
+}

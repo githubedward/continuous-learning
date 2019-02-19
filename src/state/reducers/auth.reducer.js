@@ -1,9 +1,12 @@
 import { HANDLE_PASSWORD, HANDLE_USERNAME } from "../actions/types";
 
-export default function authInput(
+export default function auth(
   state = {
     username: "",
-    password: ""
+    password: "",
+    isSignedUp: false,
+    isLoggedIn: false,
+    isLoading: false
   },
   action
 ) {
