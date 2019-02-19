@@ -23,7 +23,9 @@ const Signup = ({ handleUsername, handlePassword, username, password }) => {
             type="text"
             name="username"
             value={username}
-            onChange={handleUsername}
+            onChange={e => {
+              handleUsername(e.target.value);
+            }}
           />
         </Label>
         <Label>
@@ -32,7 +34,9 @@ const Signup = ({ handleUsername, handlePassword, username, password }) => {
             type="password"
             name="password"
             value={password}
-            onChange={handlePassword}
+            onChange={e => {
+              handlePassword(e.target.value);
+            }}
           />
         </Label>
         <Button>Signup</Button>

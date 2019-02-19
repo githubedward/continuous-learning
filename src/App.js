@@ -12,7 +12,6 @@ class App extends Component {
       <Provider store={store}>
         <GlobalStyle />
         <AuthContainer />
-        <h1>Hello World!</h1>
       </Provider>
     );
   }

@@ -1,8 +1,5 @@
 import { connect } from "react-redux";
-import {
-  handlePassword,
-  handleUsername
-} from "../../state/actions/index.action";
+import { handlePassword, handleUsername } from "../../state/actions";
 import Auth from "./Auth";
 
 const mapStateToProps = state => {
