@@ -1,9 +1,14 @@
-import { HANDLE_PASSWORD, HANDLE_USERNAME } from "../actions/types";
+import {
+  HANDLE_PASSWORD,
+  HANDLE_USERNAME,
+  HANDLE_FULLNAME
+} from "../actions/types";
 
 export default function auth(
   state = {
     username: "",
     password: "",
+    fullname: "",
     isSignedUp: false,
     isLoggedIn: false,
     isLoading: false
@@ -12,6 +17,11 @@ export default function auth(
 ) {
   if (!action) return state;
   switch (action.type) {
+    case HANDLE_FULLNAME:
+      return {
+        ...state,
+        fullname: action.input
+      };
     case HANDLE_USERNAME:
       return {
         ...state,

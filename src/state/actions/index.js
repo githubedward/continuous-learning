@@ -4,14 +4,21 @@ import * as types from "./types";
 export function handleUsername(input) {
   return {
     type: types.HANDLE_USERNAME,
-    input: input
+    input
   };
 }
 
 export function handlePassword(input) {
   return {
     type: types.HANDLE_PASSWORD,
-    input: input
+    input
+  };
+}
+
+export function handleFullName(input) {
+  return {
+    type: types.HANDLE_FULLNAME,
+    input
   };
 }
 

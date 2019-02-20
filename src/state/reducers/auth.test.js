@@ -42,4 +42,17 @@ describe("auth", () => {
     };
     expect(auth(initialState, action)).toEqual(nextState);
   });
+
+  it("should handle HANDLE_FULLNAME", () => {
+    const input = "a";
+    const action = {
+      type: types.HANDLE_FULLNAME,
+      input
+    };
+    const nextState = {
+      ...initialState,
+      fullname: input
+    };
+    expect(auth(initialState, action)).toEqual(nextState);
+  });
 });

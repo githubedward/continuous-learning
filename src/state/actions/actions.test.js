@@ -19,4 +19,13 @@ describe("actions", () => {
     };
     expect(actions.handlePassword(input)).toEqual(expectedAction);
   });
+
+  it("should handle fullname", () => {
+    const input = "a";
+    const expectedAction = {
+      type: types.HANDLE_FULLNAME,
+      input
+    };
+    expect(actions.handleFullName(input)).toEqual(expectedAction);
+  });
 });

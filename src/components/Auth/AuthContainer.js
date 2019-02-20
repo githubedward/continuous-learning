@@ -1,12 +1,24 @@
 import { connect } from "react-redux";
-import { handlePassword, handleUsername } from "../../state/actions";
+import {
+  handlePassword,
+  handleUsername,
+  handleFullName
+} from "../../state/actions";
 import Auth from "./Auth";
 
 const mapStateToProps = state => {
-  const { username, password, isSignedUp, isLoggedIn, isLoading } = state.auth;
+  const {
+    fullname,
+    username,
+    password,
+    isSignedUp,
+    isLoggedIn,
+    isLoading
+  } = state.auth;
   return {
     username,
     password,
+    fullname,
     isSignedUp,
     isLoggedIn,
     isLoading
@@ -16,7 +28,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     handleUsername: input => dispatch(handleUsername(input)),
-    handlePassword: input => dispatch(handlePassword(input))
+    handlePassword: input => dispatch(handlePassword(input)),
+    handleFullName: input => dispatch(handleFullName(input))
   };
 };
 

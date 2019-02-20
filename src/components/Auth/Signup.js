@@ -1,39 +1,74 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Title, Form, Label, Input, Button, Span } from "./AuthStyles";
+import {
+  H1,
+  Form,
+  Label,
+  Input,
+  Button,
+  Span,
+  Footer,
+  Anchor
+} from "./AuthStyles";
+import Container from "../shared/Container";
 import BrandName from "../shared/BrandName";
 
-const Signup = ({ handleUsername, handlePassword, username, password }) => {
+const Signup = ({
+  handleUsername,
+  handlePassword,
+  handleFullName,
+  fullname,
+  username,
+  password
+}) => {
   return (
-    <Form>
+    <Container>
       <BrandName />
-      <Title>
-        <Span>Signup, it's Free!</Span>
-      </Title>
-      <Label>
-        Username:
-        <Input
-          type="text"
-          name="username"
-          value={username}
-          onChange={e => {
-            handleUsername(e.target.value);
-          }}
-        />
-      </Label>
-      <Label>
-        Password:
-        <Input
-          type="password"
-          name="password"
-          value={password}
-          onChange={e => {
-            handlePassword(e.target.value);
-          }}
-        />
-      </Label>
-      <Button>Signup</Button>
-    </Form>
+      <H1>
+        <Span>
+          <strong>Signup</strong> to find and share beautiful experiences
+        </Span>
+      </H1>
+      <Form>
+        <Label>
+          <Input
+            type="text"
+            name="full-name"
+            placeholder="Full Name"
+            value={fullname}
+            onChange={e => {
+              handleFullName(e.target.value);
+            }}
+          />
+        </Label>
+        <Label>
+          <Input
+            type="text"
+            name="username"
+            placeholder="Username"
+            value={username}
+            onChange={e => {
+              handleUsername(e.target.value);
+            }}
+          />
+        </Label>
+        <Label>
+          <Input
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={password}
+            onChange={e => {
+              handlePassword(e.target.value);
+            }}
+          />
+        </Label>
+        <Button>Signup</Button>
+      </Form>
+      <Footer>
+        Have an account? <Anchor>Login</Anchor>
+      </Footer>
+    </Container>
   );
 };
 

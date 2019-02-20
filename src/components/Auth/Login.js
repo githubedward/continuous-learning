@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Title, Form, Label, Input, Button, Span } from "./AuthStyles";
+import { H1, Form, Label, Input, Button, Span } from "./AuthStyles";
 
 const Login = ({ handleUsername, handlePassword, username, password }) => {
   return (
     <Form>
-      <Title>
+      <H1>
         <Span>Login</Span>
-      </Title>
+      </H1>
       <Label>
         Username:
         <Input
