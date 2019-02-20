@@ -1,10 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Title, Form, Label, Input, Button, Span } from "./AuthStyles";
+import BrandName from "../shared/BrandName";
 
 const Signup = ({ handleUsername, handlePassword, username, password }) => {
   return (
     <Form>
+      <BrandName />
       <Title>
         <Span>Signup, it's Free!</Span>
       </Title>

@@ -1,5 +1,7 @@
 import { keyframes } from "styled-components";
 
+export const brandName = "MapSocial";
+
 export const appear = keyframes`
   0% {
       opacity: 0;

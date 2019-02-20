@@ -2,9 +2,6 @@ import styled from "styled-components";
 import { appear } from "../shared/style-variables";
 
 // styles
-export const Title = styled.h1`
-  margin-bottom: 1rem;
-`;
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
@@ -14,6 +11,9 @@ export const Form = styled.form`
   background: #ffffff95;
   border-radius: 3px;
   animation: ${appear} 500ms ease-in;
+`;
+export const Title = styled.h1`
+  margin-bottom: 1rem;
 `;
 export const Label = styled.label`
   margin: 0.5rem;
@@ -36,7 +36,6 @@ export const Button = styled.button`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0px 0px 5px 1px rgba(209, 209, 209, 0.3);
   &:hover {
     background: #fd8912;
     transition: 0.3s;
