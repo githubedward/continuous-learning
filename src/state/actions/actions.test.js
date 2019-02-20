@@ -1,5 +1,5 @@
 import * as types from "./types";
-import * as actions from "./index";
+import * as actions from "./actions.index";
 
 describe("actions", () => {
   it("should handle username input", () => {

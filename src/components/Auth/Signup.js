@@ -8,28 +8,41 @@ import {
   Button,
   Span,
   Footer,
-  Anchor
+  Anchor,
+  Status
 } from "./AuthStyles";
-import Container from "../shared/Container";
+import PageContainer from "../shared/PageContainer";
 import BrandName from "../shared/BrandName";
 
 const Signup = ({
   handleUsername,
   handlePassword,
   handleFullName,
+  handleSignup,
   fullname,
   username,
-  password
+  password,
+  status
 }) => {
+  const userInfo = {
+    fullname,
+    username,
+    password
+  };
   return (
-    <Container>
+    <PageContainer>
       <BrandName />
       <H1>
         <Span>
           <strong>Signup</strong> to find and share beautiful experiences
         </Span>
       </H1>
-      <Form>
+      <Form
+        onSubmit={e => {
+          e.preventDefault();
+          handleSignup(userInfo);
+        }}
+      >
         <Label>
           <Input
             type="text"
@@ -63,18 +76,22 @@ const Signup = ({
             }}
           />
         </Label>
+        <Status>{status}</Status>
         <Button>Signup</Button>
       </Form>
       <Footer>
         Have an account? <Anchor>Login</Anchor>
       </Footer>
-    </Container>
+    </PageContainer>
   );
 };
 
 Signup.propTypes = {
   handleUsername: PropTypes.func.isRequired,
   handlePassword: PropTypes.func.isRequired,
+  handleFullName: PropTypes.func.isRequired,
+  handleSignup: PropTypes.func.isRequired,
+  fullname: PropTypes.string.isRequired,
   username: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired
 };
@@ -82,6 +99,9 @@ Signup.propTypes = {
 Signup.defaultProps = {
   handleUsername: () => alert("default"),
   handlePassword: () => alert("default"),
+  handleFullName: () => alert("default"),
+  handleSignup: () => alert("default"),
+  fullname: "default",
   username: "default",
   password: "default"
 };

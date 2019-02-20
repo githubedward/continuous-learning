@@ -1,7 +1,9 @@
 import {
   HANDLE_PASSWORD,
   HANDLE_USERNAME,
-  HANDLE_FULLNAME
+  HANDLE_FULLNAME,
+  REQUEST_SIGNUP,
+  RECEIVE_SIGNUP
 } from "../actions/types";
 
 export default function auth(
@@ -9,8 +11,9 @@ export default function auth(
     username: "",
     password: "",
     fullname: "",
+    status: "",
     isSignedUp: false,
-    isLoggedIn: false,
+    isLoggedIn: true,
     isLoading: false
   },
   action
@@ -31,6 +34,18 @@ export default function auth(
       return {
         ...state,
         password: action.input
+      };
+    case REQUEST_SIGNUP:
+      return {
+        ...state,
+        isLoading: true
+      };
+    case RECEIVE_SIGNUP:
+      return {
+        ...state,
+        isLoading: false,
+        isSignedUp: true,
+        status: action.data
       };
     default:
       return state;

@@ -1,33 +1,56 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { H1, Form, Label, Input, Button, Span } from "./AuthStyles";
+import {
+  H1,
+  Form,
+  Label,
+  Input,
+  Button,
+  Span,
+  Footer,
+  Anchor
+} from "./AuthStyles";
+import PageContainer from "../shared/PageContainer";
+import BrandName from "../shared/BrandName";
 
 const Login = ({ handleUsername, handlePassword, username, password }) => {
   return (
-    <Form>
+    <PageContainer>
+      <BrandName />
       <H1>
-        <Span>Login</Span>
+        <Span>
+          <strong>Login</strong> to find and share beautiful experiences
+        </Span>
       </H1>
-      <Label>
-        Username:
-        <Input
-          type="text"
-          name="username"
-          value={username}
-          onChange={handleUsername}
-        />
-      </Label>
-      <Label>
-        Password:
-        <Input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-        />
-      </Label>
-      <Button>Login</Button>
-    </Form>
+      <Form onSubmit={e => e.preventDefault()}>
+        <Label>
+          <Input
+            type="text"
+            name="username"
+            placeholder="Username"
+            value={username}
+            onChange={e => {
+              handleUsername(e.target.value);
+            }}
+          />
+        </Label>
+        <Label>
+          <Input
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={password}
+            onChange={e => {
+              handlePassword(e.target.value);
+            }}
+          />
+        </Label>
+        <Button>Signup</Button>
+      </Form>
+      <Footer>
+        Don't have an account? <Anchor>Signup</Anchor>
+      </Footer>
+    </PageContainer>
   );
 };
 

@@ -56,12 +56,15 @@ export const Button = styled.button`
     background: ${styleGuides.red};
     transition: 0.3s;
   }
+  &:focus {
+    outline-color: ${styleGuides.lightred};
+  }
 `;
 export const Span = styled.span`
   font-weight: ${p => p.fontWeight};
   color: ${styleGuides.gray};
 `;
-export const Error = styled.span`
+export const Status = styled.span`
   color: red;
   margin-top: 0.5rem;
   font-weight: 300;
