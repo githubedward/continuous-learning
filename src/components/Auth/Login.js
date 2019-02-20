@@ -1,43 +1,33 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {
-  Container,
-  Title,
-  Form,
-  Label,
-  Input,
-  Button,
-  Span
-} from "./AuthStyles";
+import { Title, Form, Label, Input, Button, Span } from "./AuthStyles";
 
 const Login = ({ handleUsername, handlePassword, username, password }) => {
   return (
-    <Container>
-      <Form>
-        <Title>
-          <Span>Login</Span>
-        </Title>
-        <Label>
-          Username:
-          <Input
-            type="text"
-            name="username"
-            value={username}
-            onChange={handleUsername}
-          />
-        </Label>
-        <Label>
-          Password:
-          <Input
-            type="password"
-            name="password"
-            value={password}
-            onChange={handlePassword}
-          />
-        </Label>
-        <Button>Login</Button>
-      </Form>
-    </Container>
+    <Form>
+      <Title>
+        <Span>Login</Span>
+      </Title>
+      <Label>
+        Username:
+        <Input
+          type="text"
+          name="username"
+          value={username}
+          onChange={handleUsername}
+        />
+      </Label>
+      <Label>
+        Password:
+        <Input
+          type="password"
+          name="password"
+          value={password}
+          onChange={handlePassword}
+        />
+      </Label>
+      <Button>Login</Button>
+    </Form>
   );
 };
 

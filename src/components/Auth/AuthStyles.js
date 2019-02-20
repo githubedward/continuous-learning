@@ -1,14 +1,7 @@
 import styled from "styled-components";
+import { appear } from "../shared/style-variables";
 
 // styles
-export const Container = styled.div`
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #41304d;
-`;
 export const Title = styled.h1`
   margin-bottom: 1rem;
 `;
@@ -19,17 +12,8 @@ export const Form = styled.form`
   align-items: center;
   padding: 3.5rem 3rem;
   background: #ffffff95;
-  box-shadow: 0px 0px 5px 2px rgba(209, 209, 209, 0.3);
   border-radius: 3px;
-  animation: transition-opacity 500ms ease-in;
-  @keyframes transition-opacity {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
+  animation: ${appear} 500ms ease-in;
 `;
 export const Label = styled.label`
   margin: 0.5rem;
