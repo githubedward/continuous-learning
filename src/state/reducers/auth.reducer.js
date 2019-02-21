@@ -3,7 +3,10 @@ import {
   HANDLE_USERNAME,
   HANDLE_FULLNAME,
   REQUEST_SIGNUP,
-  RECEIVE_SIGNUP
+  RECEIVE_SIGNUP,
+  UPDATE_STATUS,
+  LINK_LOGIN,
+  LINK_SIGNUP
 } from "../actions/types";
 
 export default function auth(
@@ -13,7 +16,7 @@ export default function auth(
     fullname: "",
     status: "",
     isSignedUp: false,
-    isLoggedIn: true,
+    isLoggedIn: false,
     isLoading: false
   },
   action
@@ -35,6 +38,11 @@ export default function auth(
         ...state,
         password: action.input
       };
+    case UPDATE_STATUS:
+      return {
+        ...state,
+        status: action.status
+      };
     case REQUEST_SIGNUP:
       return {
         ...state,
@@ -45,7 +53,27 @@ export default function auth(
         ...state,
         isLoading: false,
         isSignedUp: true,
-        status: action.data
+        status: action.result,
+        fullname: "",
+        password: ""
+      };
+    case LINK_LOGIN:
+      return {
+        ...state,
+        isSignedUp: true,
+        status: "",
+        username: "",
+        password: "",
+        fullname: ""
+      };
+    case LINK_SIGNUP:
+      return {
+        ...state,
+        isSignedUp: false,
+        status: "",
+        username: "",
+        password: "",
+        fullname: ""
       };
     default:
       return state;

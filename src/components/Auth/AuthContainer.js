@@ -3,8 +3,11 @@ import {
   handlePassword,
   handleUsername,
   handleFullName,
-  handleSignup
-} from "../../state/actions/actions.index";
+  handleSignup,
+  updateStatus,
+  linkLogin,
+  linkSignup
+} from "../../state/actions/auth.actions";
 import Auth from "./Auth";
 
 const mapStateToProps = state => {
@@ -12,6 +15,7 @@ const mapStateToProps = state => {
     fullname,
     username,
     password,
+    status,
     isSignedUp,
     isLoggedIn,
     isLoading
@@ -20,6 +24,7 @@ const mapStateToProps = state => {
     username,
     password,
     fullname,
+    status,
     isSignedUp,
     isLoggedIn,
     isLoading
@@ -31,7 +36,10 @@ const mapDispatchToProps = dispatch => {
     handleUsername: input => dispatch(handleUsername(input)),
     handlePassword: input => dispatch(handlePassword(input)),
     handleFullName: input => dispatch(handleFullName(input)),
-    handleSignup: input => dispatch(handleSignup(input))
+    handleSignup: input => dispatch(handleSignup(input)),
+    updateStatus: status => dispatch(updateStatus(status)),
+    linkLogin: () => dispatch(linkLogin()),
+    linkSignup: () => dispatch(linkSignup())
   };
 };
 

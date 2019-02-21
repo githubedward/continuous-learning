@@ -1,5 +1,5 @@
 import * as types from "./types";
-import * as actions from "./actions.index";
+import * as actions from "./auth.actions";
 
 describe("actions", () => {
   it("should handle username input", () => {
@@ -27,5 +27,30 @@ describe("actions", () => {
       input
     };
     expect(actions.handleFullName(input)).toEqual(expectedAction);
+  });
+
+  it("should update status", () => {
+    const status = "test status";
+    const expectedAction = {
+      type: types.UPDATE_STATUS,
+      status
+    };
+    expect(actions.updateStatus(status)).toEqual(expectedAction);
+  });
+
+  it("should handle signup", () => {});
+
+  it("should link to login page", () => {
+    const expectedAction = {
+      type: types.LINK_LOGIN
+    };
+    expect(actions.linkLogin()).toEqual(expectedAction);
+  });
+
+  it("should link to signup page", () => {
+    const expectedAction = {
+      type: types.LINK_SIGNUP
+    };
+    expect(actions.linkSignup()).toEqual(expectedAction);
   });
 });

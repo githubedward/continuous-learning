@@ -1,4 +1,4 @@
-import auth from "./auth";
+import auth from "./auth.reducer";
 import * as types from "../actions/types";
 
 const deepFreeze = require("deep-freeze");
@@ -7,6 +7,7 @@ describe("auth", () => {
   const initialState = {
     username: "",
     password: "",
+    status: "",
     isSignedUp: false,
     isLoggedIn: false,
     isLoading: false
@@ -54,5 +55,51 @@ describe("auth", () => {
       fullname: input
     };
     expect(auth(initialState, action)).toEqual(nextState);
+  });
+
+  it("should UPDATE_STATUS", () => {
+    const status = "Account not found";
+    const action = {
+      type: types.UPDATE_STATUS,
+      status
+    };
+    const nextState = {
+      ...initialState,
+      status
+    };
+    expect(auth(initialState, action)).toEqual(nextState);
+  });
+
+  it("should HANDLE_SIGNUP", () => {
+    const data = {
+      fullname: "Edward",
+      username: "webed",
+      password: "123456"
+    };
+    // test REQUEST_SIGNUP
+    let action = {
+      type: types.REQUEST_SIGNUP,
+      data
+    };
+    let nextState = {
+      ...initialState,
+      isLoading: true
+    };
+    expect(auth(initialState, action)).toEqual(nextState);
+    // test resolve RECEIVE_SIGNUP
+    const result = "User successfully registered";
+    action = {
+      type: types.RECEIVE_SIGNUP,
+      result
+    };
+    nextState = {
+      ...initialState,
+      isLoading: false,
+      isSignedUp: true,
+      status: action.result,
+      fullname: ""
+    };
+    expect(auth(initialState, action)).toEqual(nextState);
+    // test reject RECEIVE_SIGNUP
   });
 });

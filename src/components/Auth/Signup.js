@@ -13,12 +13,15 @@ import {
 } from "./AuthStyles";
 import PageContainer from "../shared/PageContainer";
 import BrandName from "../shared/BrandName";
+import * as styleGuides from "../shared/style-variables";
 
 const Signup = ({
   handleUsername,
   handlePassword,
   handleFullName,
   handleSignup,
+  updateStatus,
+  linkLogin,
   fullname,
   username,
   password,
@@ -33,7 +36,7 @@ const Signup = ({
     <PageContainer>
       <BrandName />
       <H1>
-        <Span>
+        <Span color={styleGuides.gray}>
           <strong>Signup</strong> to find and share beautiful experiences
         </Span>
       </H1>
@@ -80,7 +83,8 @@ const Signup = ({
         <Button>Signup</Button>
       </Form>
       <Footer>
-        Have an account? <Anchor>Login</Anchor>
+        <Span fontWeight="lighter">Have an account?</Span>{" "}
+        <Anchor onClick={linkLogin}>Login</Anchor>
       </Footer>
     </PageContainer>
   );
@@ -91,9 +95,11 @@ Signup.propTypes = {
   handlePassword: PropTypes.func.isRequired,
   handleFullName: PropTypes.func.isRequired,
   handleSignup: PropTypes.func.isRequired,
+  updateStatus: PropTypes.func.isRequired,
   fullname: PropTypes.string.isRequired,
   username: PropTypes.string.isRequired,
-  password: PropTypes.string.isRequired
+  password: PropTypes.string.isRequired,
+  status: PropTypes.string.isRequired
 };
 
 Signup.defaultProps = {
@@ -101,9 +107,11 @@ Signup.defaultProps = {
   handlePassword: () => alert("default"),
   handleFullName: () => alert("default"),
   handleSignup: () => alert("default"),
+  updateStatus: () => alert("default"),
   fullname: "default",
   username: "default",
-  password: "default"
+  password: "default",
+  status: "default"
 };
 
 export default Signup;

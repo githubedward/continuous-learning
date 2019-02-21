@@ -62,11 +62,11 @@ export const Button = styled.button`
 `;
 export const Span = styled.span`
   font-weight: ${p => p.fontWeight};
-  color: ${styleGuides.gray};
+  color: ${p => p.color};
 `;
 export const Status = styled.span`
   color: red;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
   font-weight: 300;
 `;
 export const Footer = styled.footer`

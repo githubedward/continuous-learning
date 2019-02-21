@@ -8,18 +8,28 @@ import {
   Button,
   Span,
   Footer,
-  Anchor
+  Anchor,
+  Status
 } from "./AuthStyles";
 import PageContainer from "../shared/PageContainer";
 import BrandName from "../shared/BrandName";
+import * as styleGuides from "../shared/style-variables";
 
-const Login = ({ handleUsername, handlePassword, username, password }) => {
+const Login = ({
+  handleUsername,
+  handlePassword,
+  linkSignup,
+  username,
+  password,
+  status
+}) => {
   return (
     <PageContainer>
       <BrandName />
       <H1>
-        <Span>
-          <strong>Login</strong> to find and share beautiful experiences
+        <Span color={styleGuides.gray}>
+          <Span fontWeight="bold">Login</Span> to find and share beautiful
+          experiences
         </Span>
       </H1>
       <Form onSubmit={e => e.preventDefault()}>
@@ -45,10 +55,14 @@ const Login = ({ handleUsername, handlePassword, username, password }) => {
             }}
           />
         </Label>
-        <Button>Signup</Button>
+        <Status>{status}</Status>
+        <Button>Login</Button>
       </Form>
       <Footer>
-        Don't have an account? <Anchor>Signup</Anchor>
+        <Span color={styleGuides.darkgray} fontWeight="lighter">
+          Don't have an account?
+        </Span>{" "}
+        <Anchor onClick={linkSignup}>Signup</Anchor>
       </Footer>
     </PageContainer>
   );
@@ -57,15 +71,19 @@ const Login = ({ handleUsername, handlePassword, username, password }) => {
 Login.propTypes = {
   handleUsername: PropTypes.func.isRequired,
   handlePassword: PropTypes.func.isRequired,
+  linkSignup: PropTypes.func.isRequired,
   username: PropTypes.string.isRequired,
-  password: PropTypes.string.isRequired
+  password: PropTypes.string.isRequired,
+  status: PropTypes.string.isRequired
 };
 
 Login.defaultProps = {
   handleUsername: () => alert("default"),
   handlePassword: () => alert("default"),
+  linkSignup: () => alert("default"),
   username: "default",
-  password: "default"
+  password: "default",
+  status: "default"
 };
 
 export default Login;
