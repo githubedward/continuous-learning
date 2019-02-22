@@ -6,11 +6,14 @@ import {
   RECEIVE_SIGNUP,
   UPDATE_STATUS,
   LINK_LOGIN,
-  LINK_SIGNUP
+  LINK_SIGNUP,
+  REQUEST_LOGIN,
+  RECEIVE_TOKEN
 } from "../actions/types";
 
 export default function auth(
   state = {
+    token: "",
     username: "",
     password: "",
     fullname: "",
@@ -43,20 +46,6 @@ export default function auth(
         ...state,
         status: action.status
       };
-    case REQUEST_SIGNUP:
-      return {
-        ...state,
-        isLoading: true
-      };
-    case RECEIVE_SIGNUP:
-      return {
-        ...state,
-        isLoading: false,
-        isSignedUp: true,
-        status: action.result,
-        fullname: "",
-        password: ""
-      };
     case LINK_LOGIN:
       return {
         ...state,
@@ -74,6 +63,35 @@ export default function auth(
         username: "",
         password: "",
         fullname: ""
+      };
+    case REQUEST_SIGNUP:
+      return {
+        ...state,
+        isLoading: true
+      };
+    case RECEIVE_SIGNUP:
+      return {
+        ...state,
+        isLoading: false,
+        isSignedUp: true,
+        status: action.result,
+        fullname: "",
+        password: ""
+      };
+    case REQUEST_LOGIN:
+      return {
+        ...state,
+        isLoading: true
+      };
+    case RECEIVE_TOKEN:
+      return {
+        ...state,
+        token: action.token,
+        isLoading: true,
+        isLoggedIn: true,
+        status: "",
+        username: "",
+        password: ""
       };
     default:
       return state;

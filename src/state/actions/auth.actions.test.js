@@ -1,7 +1,7 @@
 import * as types from "./types";
 import * as actions from "./auth.actions";
 
-describe("actions", () => {
+describe("auth.actions", () => {
   it("should handle username input", () => {
     const input = "a";
     const expectedAction = {
@@ -38,8 +38,6 @@ describe("actions", () => {
     expect(actions.updateStatus(status)).toEqual(expectedAction);
   });
 
-  it("should handle signup", () => {});
-
   it("should link to login page", () => {
     const expectedAction = {
       type: types.LINK_LOGIN
@@ -53,4 +51,8 @@ describe("actions", () => {
     };
     expect(actions.linkSignup()).toEqual(expectedAction);
   });
+
+  it("should handle signup", () => {});
+
+  it("should handle login", () => {});
 });

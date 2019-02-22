@@ -3,11 +3,12 @@ import * as types from "../actions/types";
 
 const deepFreeze = require("deep-freeze");
 
-describe("auth", () => {
+describe("auth.reducers", () => {
   const initialState = {
     username: "",
     password: "",
     status: "",
+    token: "",
     isSignedUp: false,
     isLoggedIn: false,
     isLoading: false
@@ -101,5 +102,39 @@ describe("auth", () => {
     };
     expect(auth(initialState, action)).toEqual(nextState);
     // test reject RECEIVE_SIGNUP
+  });
+
+  it("should handle login", () => {
+    // test request login
+    const data = {
+      username: "webed",
+      password: "123456"
+    };
+    let action = {
+      type: types.REQUEST_LOGIN,
+      data
+    };
+    let nextState = {
+      ...initialState,
+      isLoading: true
+    };
+    expect(auth(initialState, action)).toEqual(nextState);
+
+    // test receive token
+    const token = "23123d12dc1v.c12cwcev1.c12ec1c";
+    action = {
+      type: types.RECEIVE_TOKEN,
+      token
+    };
+    nextState = {
+      ...initialState,
+      isLoggedIn: true,
+      isLoading: true,
+      token,
+      status: "",
+      username: "",
+      password: ""
+    };
+    expect(auth(initialState, action)).toEqual(nextState);
   });
 });

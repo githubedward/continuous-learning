@@ -1,5 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
+import PageContainer from "../shared/PageContainer";
+import BrandName from "../shared/BrandName";
+import * as styleGuides from "../shared/style-variables";
+import HeartSpinner from "../shared/Spinners/HeartSpinner";
 import {
   H1,
   Form,
@@ -11,16 +15,13 @@ import {
   Anchor,
   Status
 } from "./AuthStyles";
-import PageContainer from "../shared/PageContainer";
-import BrandName from "../shared/BrandName";
-import * as styleGuides from "../shared/style-variables";
 
 const Signup = ({
   handleUsername,
   handlePassword,
   handleFullName,
   handleSignup,
-  updateStatus,
+  isLoading,
   linkLogin,
   fullname,
   username,

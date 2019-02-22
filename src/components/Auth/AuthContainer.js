@@ -1,14 +1,17 @@
+import React from "react";
 import { connect } from "react-redux";
 import {
   handlePassword,
   handleUsername,
   handleFullName,
   handleSignup,
+  handleLogin,
   updateStatus,
   linkLogin,
   linkSignup
 } from "../../state/actions/auth.actions";
-import Auth from "./Auth";
+import Signup from "./Signup";
+import Login from "./Login";
 
 const mapStateToProps = state => {
   const {
@@ -16,6 +19,7 @@ const mapStateToProps = state => {
     username,
     password,
     status,
+    token,
     isSignedUp,
     isLoggedIn,
     isLoading
@@ -25,6 +29,7 @@ const mapStateToProps = state => {
     password,
     fullname,
     status,
+    token,
     isSignedUp,
     isLoggedIn,
     isLoading
@@ -37,10 +42,15 @@ const mapDispatchToProps = dispatch => {
     handlePassword: input => dispatch(handlePassword(input)),
     handleFullName: input => dispatch(handleFullName(input)),
     handleSignup: input => dispatch(handleSignup(input)),
+    handleLogin: input => dispatch(handleLogin(input)),
     updateStatus: status => dispatch(updateStatus(status)),
     linkLogin: () => dispatch(linkLogin()),
     linkSignup: () => dispatch(linkSignup())
   };
+};
+
+const Auth = props => {
+  return !props.isSignedUp ? <Signup {...props} /> : <Login {...props} />;
 };
 
 const AuthContainer = connect(

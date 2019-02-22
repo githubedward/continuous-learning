@@ -1,5 +1,6 @@
 import * as types from "./types";
 import axios from "axios";
+import fetch from "cross-fetch";
 import * as urls from "../../helpers/url";
 import * as helper from "../../helpers/functions";
 
@@ -33,6 +34,18 @@ export const updateStatus = status => {
   };
 };
 
+export const linkLogin = () => {
+  return {
+    type: types.LINK_LOGIN
+  };
+};
+
+export const linkSignup = () => {
+  return {
+    type: types.LINK_SIGNUP
+  };
+};
+
 const requestsSignup = data => {
   return {
     type: types.REQUEST_SIGNUP,
@@ -57,21 +70,38 @@ export const handleSignup = data => {
         .post(`${urls.API_URL}/register`, data)
         .then(resp => dispatch(receiveSignup(resp.data.msg)))
         .catch(err => {
-          console.log(err.response);
           receiveSignup(err.response.data.msg);
         });
     }
   };
 };
 
-export const linkLogin = () => {
+const requestLogin = data => {
   return {
-    type: types.LINK_LOGIN
+    type: types.REQUEST_LOGIN,
+    data
   };
 };
 
-export const linkSignup = () => {
+const receiveToken = token => {
   return {
-    type: types.LINK_SIGNUP
+    type: types.RECEIVE_TOKEN,
+    token
+  };
+};
+
+export const handleLogin = data => {
+  return function(dispatch) {
+    if (!helper.validateInputs(data)) {
+      dispatch(updateStatus("All fields are required."));
+    } else {
+      dispatch(requestLogin(data));
+      axios
+        .post(`${urls.API_URL}/login`, data)
+        .then(resp => dispatch(receiveToken(resp.data.token)))
+        .catch(err => {
+          updateStatus(err.response.data.msg);
+        });
+    }
   };
 };

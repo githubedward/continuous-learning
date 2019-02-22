@@ -18,11 +18,16 @@ import * as styleGuides from "../shared/style-variables";
 const Login = ({
   handleUsername,
   handlePassword,
+  handleLogin,
   linkSignup,
   username,
   password,
   status
 }) => {
+  const data = {
+    username,
+    password
+  };
   return (
     <PageContainer>
       <BrandName />
@@ -32,7 +37,12 @@ const Login = ({
           experiences
         </Span>
       </H1>
-      <Form onSubmit={e => e.preventDefault()}>
+      <Form
+        onSubmit={e => {
+          e.preventDefault();
+          handleLogin(data);
+        }}
+      >
         <Label>
           <Input
             type="text"
