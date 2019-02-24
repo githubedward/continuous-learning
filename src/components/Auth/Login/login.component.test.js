@@ -4,7 +4,7 @@ import toJson from "enzyme-to-json";
 import React from "react";
 import Enzyme, { shallow, mount } from "enzyme";
 import { MagicSpinner } from "react-spinners-kit";
-import { Status } from "./AuthStyles";
+import { Status } from "../AuthStyles";
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -51,7 +51,7 @@ describe("<Login />", () => {
     const input = component
       .find("input")
       .filterWhere(el => el.prop("name") === "username");
-    expect(input.prop("name")).toBe("username");
+    expect(input.prop("placeholder")).toBe("Username");
     expect(input.prop("type")).toBe("text");
     input.simulate("change");
     expect(component.props().handleUsername).toHaveBeenCalled();
@@ -61,7 +61,7 @@ describe("<Login />", () => {
     const input = component
       .find("input")
       .filterWhere(el => el.prop("name") === "password");
-    expect(input.prop("name")).toBe("password");
+    expect(input.prop("placeholder")).toBe("Password");
     expect(input.prop("type")).toBe("password");
     input.simulate("change");
     expect(component.props().handlePassword).toHaveBeenCalled();

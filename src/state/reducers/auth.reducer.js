@@ -10,20 +10,9 @@ import {
   REQUEST_LOGIN,
   RECEIVE_TOKEN
 } from "../actions/types";
+import importedState from "./auth.state";
 
-export default function auth(
-  state = {
-    token: "",
-    username: "",
-    password: "",
-    fullname: "",
-    status: "",
-    isSignedUp: false,
-    isLoggedIn: false,
-    isLoading: false
-  },
-  action
-) {
+export default function auth(state = importedState, action) {
   if (!action) return state;
   switch (action.type) {
     case HANDLE_FULLNAME:
@@ -44,7 +33,8 @@ export default function auth(
     case UPDATE_STATUS:
       return {
         ...state,
-        status: action.status
+        status: action.status,
+        isLoading: false
       };
     case LINK_LOGIN:
       return {

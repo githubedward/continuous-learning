@@ -3,17 +3,16 @@ import PropTypes from "prop-types";
 import {
   H1,
   Form,
-  Label,
   Input,
   Button,
   Span,
   Footer,
   Anchor,
   Status
-} from "./AuthStyles";
-import PageContainer from "../shared/PageContainer";
-import BrandName from "../shared/BrandName";
-import * as styleGuides from "../shared/style-variables";
+} from "../AuthStyles";
+import PageContainer from "../../shared/PageContainer";
+import BrandName from "../../shared/BrandName";
+import * as styleGuides from "../../shared/style-variables";
 import { MagicSpinner } from "react-spinners-kit";
 
 const Login = ({
@@ -45,28 +44,24 @@ const Login = ({
           handleLogin(data);
         }}
       >
-        <Label>
-          <Input
-            type="text"
-            name="username"
-            placeholder="Username"
-            value={username}
-            onChange={e => {
-              handleUsername(e.target.value);
-            }}
-          />
-        </Label>
-        <Label>
-          <Input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={password}
-            onChange={e => {
-              handlePassword(e.target.value);
-            }}
-          />
-        </Label>
+        <Input
+          type="text"
+          name="username"
+          placeholder="Username"
+          value={username}
+          onChange={e => {
+            handleUsername(e.target.value);
+          }}
+        />
+        <Input
+          type="password"
+          name="password"
+          placeholder="Password"
+          value={password}
+          onChange={e => {
+            handlePassword(e.target.value);
+          }}
+        />
         <Status>{status}</Status>
         <Button>
           {isLoading ? (

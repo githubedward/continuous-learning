@@ -18,24 +18,20 @@ exports[`<Login /> should match the snapshot 1`] = `
   <styled.form
     onSubmit={[Function]}
   >
-    <styled.label>
-      <styled.input
-        name="username"
-        onChange={[Function]}
-        placeholder="Username"
-        type="text"
-        value="username"
-      />
-    </styled.label>
-    <styled.label>
-      <styled.input
-        name="password"
-        onChange={[Function]}
-        placeholder="Password"
-        type="password"
-        value="password"
-      />
-    </styled.label>
+    <styled.input
+      name="username"
+      onChange={[Function]}
+      placeholder="Username"
+      type="text"
+      value="username"
+    />
+    <styled.input
+      name="password"
+      onChange={[Function]}
+      placeholder="Password"
+      type="password"
+      value="password"
+    />
     <styled.span>
       status
     </styled.span>

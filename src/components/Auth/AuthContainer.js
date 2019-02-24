@@ -10,8 +10,8 @@ import {
   linkLogin,
   linkSignup
 } from "../../state/actions/auth.actions";
-import Signup from "./Signup";
-import Login from "./Login";
+import Signup from "./Signup/Signup";
+import Login from "./Login/Login";
 
 const mapStateToProps = state => {
   const {

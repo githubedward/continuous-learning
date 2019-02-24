@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Signup /> should match the snapshot 1`] = `
+<styled.section>
+  <BrandName />
+  <styled.h1>
+    <styled.span
+      color="#B4B4B4"
+    >
+      <styled.span
+        fontWeight="bold"
+      >
+        Signup
+      </styled.span>
+       to find and share beautiful experiences
+    </styled.span>
+  </styled.h1>
+  <styled.form
+    onSubmit={[Function]}
+  >
+    <styled.input
+      name="fullname"
+      onChange={[Function]}
+      placeholder="Full Name"
+      type="text"
+      value="default"
+    />
+    <styled.input
+      name="username"
+      onChange={[Function]}
+      placeholder="Username"
+      type="text"
+      value="username"
+    />
+    <styled.input
+      name="password"
+      onChange={[Function]}
+      placeholder="Password"
+      type="password"
+      value="password"
+    />
+    <styled.span>
+      status
+    </styled.span>
+    <styled.button>
+      Signup
+    </styled.button>
+  </styled.form>
+  <styled.footer>
+    <styled.span
+      fontWeight={300}
+    >
+      Have an account?
+    </styled.span>
+     
+    <styled.a>
+      Login
+    </styled.a>
+  </styled.footer>
+</styled.section>
+`;

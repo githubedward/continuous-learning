@@ -1,21 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
-import PageContainer from "../shared/PageContainer";
-import BrandName from "../shared/BrandName";
-import * as styleGuides from "../shared/style-variables";
+import PageContainer from "../../shared/PageContainer";
+import BrandName from "../../shared/BrandName";
+import * as styleGuides from "../../shared/style-variables";
 // import HeartSpinner from "../shared/Spinners/HeartSpinner";
 import { MagicSpinner } from "react-spinners-kit";
 import {
   H1,
   Form,
-  Label,
   Input,
   Button,
   Span,
   Footer,
   Anchor,
   Status
-} from "./AuthStyles";
+} from "../AuthStyles";
 
 const Signup = ({
   handleUsername,
@@ -35,15 +34,6 @@ const Signup = ({
     password
   };
 
-  // if (isLoading)
-  //   return (
-  //     <HeartSpinner
-  //       loading={isLoading}
-  //       size={50}
-  //       color={styleGuides.lightred}
-  //     />
-  //   );
-
   return (
     <PageContainer>
       <BrandName />
@@ -59,39 +49,33 @@ const Signup = ({
           handleSignup(userInfo);
         }}
       >
-        <Label>
-          <Input
-            type="text"
-            name="full-name"
-            placeholder="Full Name"
-            value={fullname}
-            onChange={e => {
-              handleFullName(e.target.value);
-            }}
-          />
-        </Label>
-        <Label>
-          <Input
-            type="text"
-            name="username"
-            placeholder="Username"
-            value={username}
-            onChange={e => {
-              handleUsername(e.target.value);
-            }}
-          />
-        </Label>
-        <Label>
-          <Input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={password}
-            onChange={e => {
-              handlePassword(e.target.value);
-            }}
-          />
-        </Label>
+        <Input
+          type="text"
+          name="fullname"
+          placeholder="Full Name"
+          value={fullname}
+          onChange={e => {
+            handleFullName(e.target.value);
+          }}
+        />
+        <Input
+          type="text"
+          name="username"
+          placeholder="Username"
+          value={username}
+          onChange={e => {
+            handleUsername(e.target.value);
+          }}
+        />
+        <Input
+          type="password"
+          name="password"
+          placeholder="Password"
+          value={password}
+          onChange={e => {
+            handlePassword(e.target.value);
+          }}
+        />
         <Status>{status}</Status>
         <Button>
           {isLoading ? (

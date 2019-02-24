@@ -70,9 +70,10 @@ export const handleSignup = data => {
           .post(`${urls.API_URL}/register`, data)
           .then(resp => dispatch(receiveSignup(resp.data.msg)))
           .catch(err => {
+            console.log(err.response);
             receiveSignup(err.response.data.msg);
           });
-      }, 2000);
+      }, 1000);
     }
   };
 };
@@ -104,7 +105,7 @@ export const handleLogin = data => {
           .catch(err => {
             updateStatus(err.response.data.msg);
           });
-      }, 2000);
+      }, 1000);
     }
   };
 };

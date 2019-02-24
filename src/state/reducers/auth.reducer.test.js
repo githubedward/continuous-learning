@@ -1,18 +1,10 @@
 import auth from "./auth.reducer";
 import * as types from "../actions/types";
+import initialState from "./auth.state";
 
 const deepFreeze = require("deep-freeze");
 
 describe("auth.reducers", () => {
-  const initialState = {
-    username: "",
-    password: "",
-    status: "",
-    token: "",
-    isSignedUp: false,
-    isLoggedIn: false,
-    isLoading: false
-  };
   deepFreeze(initialState);
 
   it("should return initial state", () => {
