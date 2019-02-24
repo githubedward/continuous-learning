@@ -129,7 +129,7 @@ describe("auth.reducers", () => {
     nextState = {
       ...initialState,
       isLoggedIn: true,
-      isLoading: true,
+      isLoading: false,
       token,
       status: "",
       username: "",

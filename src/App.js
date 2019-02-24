@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import GlobalStyle from "./themes/GlobalStyle";
+// import GlobalStyle from "./themes/GlobalStyle";
 import { Provider } from "react-redux";
 import AuthContainer from "./components/Auth/AuthContainer";
 import configureStore from "./state/store/store";
 import StyledApp from "./themes/StyledApp";
+import "./index.css";
 
 const store = configureStore();
 
@@ -12,7 +13,7 @@ class App extends Component {
     return (
       <StyledApp>
         <Provider store={store}>
-          <GlobalStyle />
+          {/* <GlobalStyle /> */}
           <AuthContainer />
         </Provider>
       </StyledApp>

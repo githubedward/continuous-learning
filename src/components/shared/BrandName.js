@@ -1,10 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import * as styledGuides from "./style-variables";
+import Yellowtail from "../../themes/Assets/Yellowtail-Regular.ttf";
 
 const StyledName = styled.h1`
-  @import url("https://fonts.googleapis.com/css?family=Yellowtail");
-  font-family: "Yellowtail", cursive;
+  @font-face {
+    font-family: "Yellowtail";
+    src: url(${Yellowtail});
+  }
+  font-family: "Yellowtail";
   font-size: 4rem;
   font-weight: lighter;
   color: ${styledGuides.superdarkgray};

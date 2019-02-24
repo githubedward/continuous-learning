@@ -14,12 +14,14 @@ import {
 import PageContainer from "../shared/PageContainer";
 import BrandName from "../shared/BrandName";
 import * as styleGuides from "../shared/style-variables";
+import { MagicSpinner } from "react-spinners-kit";
 
 const Login = ({
   handleUsername,
   handlePassword,
   handleLogin,
   linkSignup,
+  isLoading,
   username,
   password,
   status
@@ -66,10 +68,16 @@ const Login = ({
           />
         </Label>
         <Status>{status}</Status>
-        <Button>Login</Button>
+        <Button>
+          {isLoading ? (
+            <MagicSpinner loading={isLoading} size={35} color={"white"} />
+          ) : (
+            "Login"
+          )}
+        </Button>
       </Form>
       <Footer>
-        <Span color={styleGuides.darkgray} fontWeight="lighter">
+        <Span color={styleGuides.darkgray} fontWeight={styleGuides.lighter}>
           Don't have an account?
         </Span>{" "}
         <Anchor onClick={linkSignup}>Signup</Anchor>

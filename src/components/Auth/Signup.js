@@ -3,7 +3,8 @@ import PropTypes from "prop-types";
 import PageContainer from "../shared/PageContainer";
 import BrandName from "../shared/BrandName";
 import * as styleGuides from "../shared/style-variables";
-import HeartSpinner from "../shared/Spinners/HeartSpinner";
+// import HeartSpinner from "../shared/Spinners/HeartSpinner";
+import { MagicSpinner } from "react-spinners-kit";
 import {
   H1,
   Form,
@@ -33,12 +34,23 @@ const Signup = ({
     username,
     password
   };
+
+  // if (isLoading)
+  //   return (
+  //     <HeartSpinner
+  //       loading={isLoading}
+  //       size={50}
+  //       color={styleGuides.lightred}
+  //     />
+  //   );
+
   return (
     <PageContainer>
       <BrandName />
       <H1>
         <Span color={styleGuides.gray}>
-          <strong>Signup</strong> to find and share beautiful experiences
+          <Span fontWeight="bold">Signup</Span> to find and share beautiful
+          experiences
         </Span>
       </H1>
       <Form
@@ -81,10 +93,16 @@ const Signup = ({
           />
         </Label>
         <Status>{status}</Status>
-        <Button>Signup</Button>
+        <Button>
+          {isLoading ? (
+            <MagicSpinner loading={isLoading} size={35} color={"white"} />
+          ) : (
+            "Signup"
+          )}
+        </Button>
       </Form>
       <Footer>
-        <Span fontWeight="lighter">Have an account?</Span>{" "}
+        <Span fontWeight={styleGuides.light}>Have an account?</Span>{" "}
         <Anchor onClick={linkLogin}>Login</Anchor>
       </Footer>
     </PageContainer>

@@ -1,5 +1,10 @@
 import { keyframes } from "styled-components";
 
+// fontweight
+export const lighter = 100;
+export const light = 300;
+export const medium = 500;
+
 // colors
 export const lightred = "#ed4949";
 export const red = "#ff3030";

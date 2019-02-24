@@ -87,7 +87,7 @@ export default function auth(
       return {
         ...state,
         token: action.token,
-        isLoading: true,
+        isLoading: false,
         isLoggedIn: true,
         status: "",
         username: "",

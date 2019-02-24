@@ -27,12 +27,17 @@ export const Input = styled.input`
   width: inherit;
   padding: 0.5rem;
   font-size: 1.25rem;
-  font-weight: lighter;
+  font-weight: ${styleGuides.light};
   height: 3rem;
 
   &:focus {
     outline: none;
     background-color: ${styleGuides.lightgray};
+  }
+
+  ::placeholder {
+    font-weight: ${styleGuides.lighter};
+    color: ${styleGuides.darkgray};
   }
 `;
 export const Button = styled.button`
@@ -40,7 +45,7 @@ export const Button = styled.button`
   align-items: center;
   justify-content: center;
 
-  font-weight: bold;
+  font-weight: ${styleGuides.medium};
   margin-top: 3rem;
   color: white;
   font-size: 1.25rem;
@@ -57,7 +62,7 @@ export const Button = styled.button`
     transition: 0.3s;
   }
   &:focus {
-    outline-color: ${styleGuides.lightred};
+    outline: none;
   }
 `;
 export const Span = styled.span`

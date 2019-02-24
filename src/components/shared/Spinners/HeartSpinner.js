@@ -1,18 +1,25 @@
 import React from "react";
-import HeartSpinner from "react-spinners-kit";
+import { HeartSpinner } from "react-spinners-kit";
+import styled from "styled-components";
 import { connect } from "react-redux";
 
-const SpinnerComponent = ({ isLoading }) => {
-  return <HeartSpinner size={50} loading={isLoading} />;
+const Spinner = styled.HeartSpinner`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const SpinnerComponent = ({ loading }) => {
+  return <Spinner size={50} loading={loading} />;
 };
 
-const mapStateToProps = state => {
-  const { isLoading } = state.auth;
-  return {
-    isLoading
-  };
-};
+// const mapStateToProps = state => {
+//   const { isLoading } = state.auth;
+//   return {
+//     isLoading
+//   };
+// };
 
-const Spinner = connect(mapStateToProps)(SpinnerComponent);
+// const Spinner = connect(mapStateToProps)(SpinnerComponent);
 
-export default Spinner;
+export default SpinnerComponent;

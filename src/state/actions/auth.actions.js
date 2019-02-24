@@ -1,6 +1,5 @@
 import * as types from "./types";
 import axios from "axios";
-import fetch from "cross-fetch";
 import * as urls from "../../helpers/url";
 import * as helper from "../../helpers/functions";
 
@@ -66,12 +65,14 @@ export const handleSignup = data => {
       dispatch(updateStatus("All fields are required."));
     } else {
       dispatch(requestsSignup(data));
-      axios
-        .post(`${urls.API_URL}/register`, data)
-        .then(resp => dispatch(receiveSignup(resp.data.msg)))
-        .catch(err => {
-          receiveSignup(err.response.data.msg);
-        });
+      setTimeout(() => {
+        axios
+          .post(`${urls.API_URL}/register`, data)
+          .then(resp => dispatch(receiveSignup(resp.data.msg)))
+          .catch(err => {
+            receiveSignup(err.response.data.msg);
+          });
+      }, 2000);
     }
   };
 };
@@ -96,12 +97,14 @@ export const handleLogin = data => {
       dispatch(updateStatus("All fields are required."));
     } else {
       dispatch(requestLogin(data));
-      axios
-        .post(`${urls.API_URL}/login`, data)
-        .then(resp => dispatch(receiveToken(resp.data.token)))
-        .catch(err => {
-          updateStatus(err.response.data.msg);
-        });
+      setTimeout(() => {
+        axios
+          .post(`${urls.API_URL}/login`, data)
+          .then(resp => dispatch(receiveToken(resp.data.token)))
+          .catch(err => {
+            updateStatus(err.response.data.msg);
+          });
+      }, 2000);
     }
   };
 };
