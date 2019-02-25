@@ -2,7 +2,9 @@
 
 exports[`<Login /> should match the snapshot 1`] = `
 <styled.section>
-  <BrandName />
+  <BrandName
+    size="3.5rem"
+  />
   <styled.h1>
     <styled.span
       color="#B4B4B4"

@@ -1,13 +1,13 @@
 // import "babel-polyfill";
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
+import Root from "./Root";
 import { MobileContainer, AppContainer } from "./themes/AppContainer";
 
 ReactDOM.render(
   <AppContainer>
     <MobileContainer>
-      <App />
+      <Root />
     </MobileContainer>
   </AppContainer>,
   document.getElementById("root")

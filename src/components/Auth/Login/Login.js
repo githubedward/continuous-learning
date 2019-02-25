@@ -31,7 +31,7 @@ const Login = ({
   };
   return (
     <PageContainer>
-      <BrandName />
+      <BrandName size={"3.5rem"} />
       <H1>
         <Span color={styleGuides.gray}>
           <Span fontWeight="bold">Login</Span> to find and share beautiful

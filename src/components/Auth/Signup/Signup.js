@@ -36,7 +36,7 @@ const Signup = ({
 
   return (
     <PageContainer>
-      <BrandName />
+      <BrandName size={"3.5rem"} />
       <H1>
         <Span color={styleGuides.gray}>
           <Span fontWeight="bold">Signup</Span> to find and share beautiful

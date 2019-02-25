@@ -18,8 +18,8 @@ export default function auth(
     password: "",
     fullname: "",
     status: "",
-    isSignedUp: false,
-    isLoggedIn: false,
+    isSignedUp: true,
+    isLoggedIn: true,
     isLoading: false
   },
   action

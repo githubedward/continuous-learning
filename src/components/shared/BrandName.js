@@ -9,11 +9,13 @@ const StyledName = styled.h1`
     src: url(${Yellowtail});
   }
   font-family: "Yellowtail";
-  font-size: 4rem;
+  font-size: ${p => p.fontSize};
   font-weight: lighter;
   color: ${styledGuides.superdarkgray};
 `;
 
-export default function BrandName() {
-  return <StyledName>MapSocial</StyledName>;
-}
+const BrandName = ({ size }) => {
+  return <StyledName fontSize={size}>MapSocial</StyledName>;
+};
+
+export default BrandName;
