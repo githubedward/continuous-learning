@@ -9,11 +9,18 @@ const StyledHeader = styled.header`
   width: inherit;
 `;
 
+const StyledIcon = styled.i``;
+
+const StyledBrandName = styled(BrandName)`
+  width: 3vw;
+  color: red;
+`;
+
 const Header = props => {
   return (
     <StyledHeader>
       <i className="material-icons">person</i>
-      <BrandName size={"2.5rem"} />
+      <StyledBrandName className={props.className} size={"2.5rem"} />
     </StyledHeader>
   );
 };
