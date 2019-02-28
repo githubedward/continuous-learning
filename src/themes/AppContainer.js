@@ -19,6 +19,7 @@ export const MobileContainer = styled.div`
   box-shadow: 0px 0px 5px 2px rgba(209, 209, 209, 0.3);
   box-shadow: 0px 0px 10px 2px #666666 inset;
   padding: 3rem 0.5rem 0.5rem 0.5rem;
+  z-index: 99;
 
   height: 850px;
   width: 415px;

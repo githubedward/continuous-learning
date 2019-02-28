@@ -1,7 +1,7 @@
 import * as types from "./types";
 import axios from "axios";
-import * as urls from "../../helpers/url";
 import * as helper from "../../helpers/functions";
+const API_URL = process.env.REACT_APP_DEV_API_URL;
 
 // sync creators
 
@@ -67,7 +67,7 @@ export const handleSignup = data => {
       dispatch(requestsSignup(data));
       setTimeout(() => {
         axios
-          .post(`${urls.API_URL}/register`, data)
+          .post(`${API_URL}/register`, data)
           .then(resp => dispatch(receiveSignup(resp.data.msg)))
           .catch(err => dispatch(updateStatus(err.response.data.msg)));
       }, 1000);
@@ -97,7 +97,7 @@ export const handleLogin = data => {
       dispatch(requestLogin(data));
       setTimeout(() => {
         axios
-          .post(`${urls.API_URL}/login`, data)
+          .post(`${API_URL}/login`, data)
           .then(resp => dispatch(receiveToken(resp.data.token)))
           .catch(err => dispatch(updateStatus(err.response.data.msg)));
       }, 1000);

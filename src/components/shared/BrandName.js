@@ -11,11 +11,15 @@ const StyledName = styled.h1`
   font-family: "Yellowtail";
   font-size: ${p => p.fontSize};
   font-weight: lighter;
-  color: ${styledGuides.superdarkgray};
+  color: ${p => p.color};
 `;
 
-const BrandName = ({ size }) => {
-  return <StyledName fontSize={size}>MapSocial</StyledName>;
+const BrandName = ({ size, color = styledGuides.superdarkgray }) => {
+  return (
+    <StyledName fontSize={size} color={color}>
+      {process.env.REACT_APP_NAME}
+    </StyledName>
+  );
 };
 
 export default BrandName;
