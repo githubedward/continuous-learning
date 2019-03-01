@@ -1,19 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {
-  H1,
-  Form,
-  Input,
-  Button,
-  Span,
-  Footer,
-  Anchor,
-  Status
-} from "../AuthStyles";
+import { H1, Form, Input, Span, Footer, Anchor, Status } from "../AuthStyles";
 import PageContainer from "../../shared/PageContainer";
 import BrandName from "../../shared/BrandName";
 import * as styleGuides from "../../shared/style-variables";
 import { MagicSpinner } from "react-spinners-kit";
+import Button from "../../shared/Button";
+import { ThemeProvider } from "styled-components";
+import { btnTheme } from "../AuthStyles";
 
 const Login = ({
   handleUsername,
@@ -29,6 +23,7 @@ const Login = ({
     username,
     password
   };
+
   return (
     <PageContainer>
       <BrandName size={"3.5rem"} />
@@ -63,13 +58,15 @@ const Login = ({
           }}
         />
         <Status>{status}</Status>
-        <Button>
-          {isLoading ? (
-            <MagicSpinner loading={isLoading} size={35} color={"white"} />
-          ) : (
-            "Login"
-          )}
-        </Button>
+        <ThemeProvider theme={btnTheme}>
+          <Button>
+            {isLoading ? (
+              <MagicSpinner loading={isLoading} size={35} color={"white"} />
+            ) : (
+              "Login"
+            )}
+          </Button>
+        </ThemeProvider>
       </Form>
       <Footer>
         <Span color={styleGuides.darkgray} fontWeight={styleGuides.lighter}>

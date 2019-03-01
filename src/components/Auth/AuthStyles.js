@@ -41,31 +41,6 @@ export const Input = styled.input`
     color: ${styleGuides.darkgray};
   }
 `;
-export const Button = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-weight: ${styleGuides.medium};
-  margin-top: 3rem;
-  color: white;
-  font-size: 1.25rem;
-  width: inherit;
-  height: 3rem;
-  padding: 0.5rem 1rem;
-  background: ${styleGuides.lightred};
-  border: 1px solid ${styleGuides.lightred};
-  border-radius: 3px;
-  text-decoration: none;
-  cursor: pointer;
-  &:hover {
-    background: ${styleGuides.red};
-    transition: 0.3s;
-  }
-  &:focus {
-    outline: none;
-  }
-`;
 export const Span = styled.span`
   font-weight: ${p => p.fontWeight};
   color: ${p => p.color};
@@ -87,3 +62,14 @@ export const Anchor = styled.a`
     text-decoration: underline;
   }
 `;
+export const btnTheme = {
+  margin: "3rem 0 0 0",
+  color: "white",
+  fontSize: "1.25rem",
+  fweight: styleGuides.medium,
+  width: "inherit",
+  padding: ".5rem 1rem",
+  bgc: styleGuides.lightred,
+  borderColor: styleGuides.lightred,
+  hoverbgc: styleGuides.red
+};

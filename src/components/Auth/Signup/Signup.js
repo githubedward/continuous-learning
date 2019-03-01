@@ -3,18 +3,11 @@ import PropTypes from "prop-types";
 import PageContainer from "../../shared/PageContainer";
 import BrandName from "../../shared/BrandName";
 import * as styleGuides from "../../shared/style-variables";
-// import HeartSpinner from "../shared/Spinners/HeartSpinner";
 import { MagicSpinner } from "react-spinners-kit";
-import {
-  H1,
-  Form,
-  Input,
-  Button,
-  Span,
-  Footer,
-  Anchor,
-  Status
-} from "../AuthStyles";
+import { H1, Form, Input, Span, Footer, Anchor, Status } from "../AuthStyles";
+import Button from "../../shared/Button";
+import { ThemeProvider } from "styled-components";
+import { btnTheme } from "../AuthStyles";
 
 const Signup = ({
   handleUsername,
@@ -77,13 +70,15 @@ const Signup = ({
           }}
         />
         <Status>{status}</Status>
-        <Button>
-          {isLoading ? (
-            <MagicSpinner loading={isLoading} size={35} color={"white"} />
-          ) : (
-            "Signup"
-          )}
-        </Button>
+        <ThemeProvider theme={btnTheme}>
+          <Button>
+            {isLoading ? (
+              <MagicSpinner loading={isLoading} size={35} color={"white"} />
+            ) : (
+              "Signup"
+            )}
+          </Button>
+        </ThemeProvider>
       </Form>
       <Footer>
         <Span fontWeight={styleGuides.light}>Have an account?</Span>{" "}

@@ -1,7 +1,8 @@
 import React from "react";
+import Profile from "../Profile/Profile";
 
 const Display = props => {
-  return <h1>Display</h1>;
+  return <Profile />;
 };
 
 export default Display;

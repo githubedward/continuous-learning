@@ -37,9 +37,25 @@ exports[`<Login /> should match the snapshot 1`] = `
     <styled.span>
       status
     </styled.span>
-    <styled.button>
-      Login
-    </styled.button>
+    <ThemeProvider
+      theme={
+        Object {
+          "bgc": "#ed4949",
+          "borderColor": "#ed4949",
+          "color": "white",
+          "fontSize": "1.25rem",
+          "fweight": 500,
+          "hoverbgc": "#ff3030",
+          "margin": "3rem 0 0 0",
+          "padding": ".5rem 1rem",
+          "width": "inherit",
+        }
+      }
+    >
+      <styled.button>
+        Login
+      </styled.button>
+    </ThemeProvider>
   </styled.form>
   <styled.footer>
     <styled.span
