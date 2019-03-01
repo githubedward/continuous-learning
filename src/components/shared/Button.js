@@ -4,8 +4,8 @@ const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
 
+  height: ${p => p.theme.height || "auto"};
   font-weight: ${p => p.theme.fweight};
   margin: ${p => p.theme.margin};
   color: ${p => p.theme.color};
@@ -21,7 +21,8 @@ const Button = styled.button`
   &:hover {
     background: ${p => p.theme.hoverbgc};
     transition: 0.3s;
-    /* color: ${p => p.theme.hoverColor || "inherit"}; */
+    border: 1px solid ${p => p.theme.hoverbc};
+    color: ${p => p.theme.hovercolor};
   }
   &:focus {
     outline: none;

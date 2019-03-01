@@ -17,11 +17,14 @@ const Profile = ({ fullname }) => {
     color: styleGuides.darkgray,
     fontSize: "1rem",
     width: "inherit",
-    padding: ".5rem 1rem",
+    padding: "0rem 1rem",
     bgc: "white",
     borderColor: styleGuides.gray,
-    hoverbgc: styleGuides.lightgray,
-    fweight: styleGuides.light
+    hoverbgc: styleGuides.lightred,
+    fweight: styleGuides.light,
+    height: "4rem",
+    hoverbc: styleGuides.lightred,
+    hovercolor: "white"
   };
 
   return (
