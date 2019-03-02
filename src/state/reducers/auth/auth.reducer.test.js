@@ -1,5 +1,5 @@
 import auth from "./auth.reducer";
-import * as types from "../actions/types";
+import * as types from "../../actions/auth/auth.types";
 
 const deepFreeze = require("deep-freeze");
 
@@ -133,7 +133,6 @@ describe("auth.reducers", () => {
       ...initialState,
       isLoggedIn: true,
       isLoading: false,
-      token,
       status: "",
       username: "",
       password: ""

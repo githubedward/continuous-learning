@@ -11,7 +11,7 @@ const StyledProfile = styled.div`
   align-items: center;
 `;
 
-const Profile = ({ fullname }) => {
+const Profile = ({ user }) => {
   const btnTheme = {
     margin: "1rem 0 0 0",
     color: styleGuides.darkgray,
@@ -22,15 +22,15 @@ const Profile = ({ fullname }) => {
     borderColor: styleGuides.gray,
     hoverbgc: styleGuides.lightred,
     fweight: styleGuides.light,
-    height: "4rem",
+    height: "3rem",
     hoverbc: styleGuides.lightred,
     hovercolor: "white"
   };
 
   return (
     <StyledProfile>
-      <Icon icon="person" />
-      <h2>{fullname}</h2>
+      <Icon icon="person" fontSize="5rem" />
+      <h2>{user.fullname}</h2>
       <ThemeProvider theme={btnTheme}>
         <Button>Edit</Button>
       </ThemeProvider>

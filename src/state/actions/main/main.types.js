@@ -1,0 +1,3 @@
+export const TOGGLE_LOADER = "TOGGLE_LOADER";
+
+export const VALIDATED_USER = "VALIDATED_USER";

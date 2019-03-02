@@ -9,7 +9,7 @@ import {
   updateStatus,
   linkLogin,
   linkSignup
-} from "../../state/actions/auth.actions";
+} from "../../state/actions/auth/auth.actions";
 import Signup from "./Signup/Signup";
 import Login from "./Login/Login";
 

@@ -1,8 +1,8 @@
 import React from "react";
-import Profile from "../Profile/Profile";
+import ProfileContainer from "../Profile/ProfileContainer";
 
 const Display = props => {
-  return <Profile />;
+  return <ProfileContainer />;
 };
 
 export default Display;

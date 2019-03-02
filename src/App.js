@@ -6,33 +6,70 @@ import Main from "./components/Main/Main";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import "./themes/index.css";
+import PageLoader from "./components/shared/PageLoader";
+import { validateToken, toggleLoader } from "./state/actions/main/main.actions";
 
 class App extends Component {
+  componentDidMount() {
+    const token = localStorage.getItem("token");
+    if (!token)
+      setTimeout(() => {
+        this.props.toggleLoader(false);
+      }, 2000);
+    else this.props.validateToken(token);
+  }
+
   render() {
-    const { isSignedUp, isLoggedIn } = this.props;
+    const { isSignedUp, isLoggedIn, isPageLoading } = this.props;
     return (
       <StyledApp>
         {/* <GlobalStyle /> */}
-        {!isSignedUp || !isLoggedIn ? <AuthContainer /> : <Main />}
+        {isPageLoading ? (
+          <PageLoader />
+        ) : !isSignedUp || !isLoggedIn ? (
+          <AuthContainer />
+        ) : (
+          <Main />
+        )}
       </StyledApp>
     );
   }
 }
 
-App.propTypes = {
-  isSignedUp: PropTypes.bool.isRequired,
-  isLoggedIn: PropTypes.bool.isRequired,
-  isAuthLoading: PropTypes.bool.isRequired
-};
-
 const mapStateToProps = state => {
   const { isLoading: isAuthLoading, isLoggedIn, isSignedUp } = state.auth;
+  const { isPageLoading } = state.main;
 
   return {
     isAuthLoading,
     isLoggedIn,
-    isSignedUp
+    isSignedUp,
+    isPageLoading
   };
 };
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = dispatch => {
+  return {
+    validateToken: token => dispatch(validateToken(token)),
+    toggleLoader: bool => dispatch(toggleLoader(bool))
+  };
+};
+
+App.propTypes = {
+  isSignedUp: PropTypes.bool.isRequired,
+  isLoggedIn: PropTypes.bool.isRequired,
+  isAuthLoading: PropTypes.bool.isRequired,
+  isPageLoading: PropTypes.bool.isRequired,
+  validateToken: PropTypes.func.isRequired,
+  toggleLoader: PropTypes.func.isRequired
+};
+
+App.defaultProps = {
+  validateToken: () => alert("validateToken"),
+  toggleLoader: () => alert("toggleLoader")
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);

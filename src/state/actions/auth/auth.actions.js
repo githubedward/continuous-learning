@@ -1,6 +1,7 @@
-import * as types from "./types";
+import * as types from "./auth.types";
 import axios from "axios";
-import * as helper from "../../helpers/functions";
+import * as helper from "../../../helpers/functions";
+
 const API_URL = process.env.REACT_APP_DEV_API_URL;
 
 // sync creators
@@ -98,9 +99,18 @@ export const handleLogin = data => {
       setTimeout(() => {
         axios
           .post(`${API_URL}/login`, data)
-          .then(resp => dispatch(receiveToken(resp.data.token)))
+          .then(resp => {
+            dispatch(receiveToken(resp.data.token));
+            localStorage.setItem("token", resp.data.token);
+          })
           .catch(err => dispatch(updateStatus(err.response.data.msg)));
       }, 1000);
     }
+  };
+};
+
+export const authenticated = () => {
+  return {
+    type: types.AUTHENTICATED
   };
 };

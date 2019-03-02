@@ -1,4 +1,4 @@
-import * as types from "./types";
+import * as types from "./auth.types";
 import * as actions from "./auth.actions";
 
 describe("auth.actions", () => {

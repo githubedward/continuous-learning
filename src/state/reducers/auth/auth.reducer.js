@@ -8,18 +8,18 @@ import {
   LINK_LOGIN,
   LINK_SIGNUP,
   REQUEST_LOGIN,
-  RECEIVE_TOKEN
-} from "../actions/types";
+  RECEIVE_TOKEN,
+  AUTHENTICATED
+} from "../../actions/auth/auth.types";
 
 export default function auth(
   state = {
-    token: "",
     username: "",
     password: "",
     fullname: "",
     status: "",
-    isSignedUp: true,
-    isLoggedIn: true,
+    isSignedUp: false,
+    isLoggedIn: false,
     isLoading: false
   },
   action
@@ -89,12 +89,17 @@ export default function auth(
     case RECEIVE_TOKEN:
       return {
         ...state,
-        token: action.token,
         isLoading: false,
         isLoggedIn: true,
         status: "",
         username: "",
         password: ""
+      };
+    case AUTHENTICATED:
+      return {
+        ...state,
+        isSignedUp: true,
+        isLoggedIn: true
       };
     default:
       return state;
