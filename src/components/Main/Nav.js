@@ -17,14 +17,20 @@ const StyledNav = styled.div`
   height: 4rem;
 `;
 
-const Nav = props => {
+const Nav = () => {
   const iconSize = "2rem";
+  const icons = ["place", "speaker_notes", "people", "person"];
   return (
     <StyledNav>
-      <Icon icon="place" fontSize={iconSize} />
-      <Icon icon="speaker_notes" fontSize={iconSize} />
-      <Icon icon="people" fontSize={iconSize} />
-      <Icon icon="person" fontSize={iconSize} />
+      {icons.map((name, i) => (
+        <Icon
+          key={i}
+          icon={name}
+          fontSize={iconSize}
+          color={styleGuides.darkgray}
+          hoverColor={styleGuides.lightred}
+        />
+      ))}
     </StyledNav>
   );
 };

@@ -1,6 +1,6 @@
-import React from "react";
 import Profile from "./Profile";
 import { connect } from "react-redux";
+import { logout } from "../../state/actions/auth/auth.actions";
 
 const mapStateToProps = state => {
   const { user } = state.main;
@@ -9,4 +9,13 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(Profile);
+const mapDispatchToProps = dispatch => {
+  return {
+    logout: () => dispatch(logout())
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Profile);

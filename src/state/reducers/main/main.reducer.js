@@ -20,6 +20,11 @@ export default function main(
         isPageLoading: false,
         user: action.user
       };
+    case types.USER_LOGOUT:
+      return {
+        ...state,
+        user: {}
+      };
     default:
       return state;
   }

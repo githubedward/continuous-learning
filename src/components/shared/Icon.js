@@ -1,7 +1,7 @@
 import React from "react";
 import Radium from "radium";
 import styled from "styled-components";
-import * as styleGuides from "../shared/style-variables";
+// import * as styleGuides from "../shared/style-variables";
 
 const StyledIcon = styled.div`
   width: ${p => p.width};
@@ -14,18 +14,18 @@ const StyledIcon = styled.div`
   padding: ${p => p.padding};
 `;
 
-const Icon = ({ icon, width, fontSize, padding }) => {
+const Icon = ({ icon, width, fontSize, padding, hoverColor, color }) => {
   return (
     <StyledIcon width={width} padding={padding}>
       <i
         className="material-icons"
         style={{
-          color: styleGuides.darkgray,
+          color: color,
           fontSize: fontSize,
           cursor: "pointer",
 
           ":hover": {
-            color: styleGuides.lightred
+            color: hoverColor || color
           }
         }}
       >

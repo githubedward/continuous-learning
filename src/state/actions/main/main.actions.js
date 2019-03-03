@@ -39,3 +39,9 @@ export const validateToken = token => {
     }, 2000);
   };
 };
+
+export const userLogout = () => {
+  return {
+    type: types.USER_LOGOUT
+  };
+};

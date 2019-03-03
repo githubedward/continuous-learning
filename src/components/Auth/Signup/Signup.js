@@ -32,8 +32,10 @@ const Signup = ({
       <BrandName size={"3.5rem"} />
       <H1>
         <Span color={styleGuides.gray}>
-          <Span fontWeight="bold">Signup</Span> to find and share beautiful
-          experiences
+          <Span fontWeight="bold" color={styleGuides.gray}>
+            Signup
+          </Span>{" "}
+          to find and share beautiful experiences
         </Span>
       </H1>
       <Form
@@ -73,7 +75,7 @@ const Signup = ({
         <ThemeProvider theme={btnTheme}>
           <Button>
             {isLoading ? (
-              <MagicSpinner loading={isLoading} size={35} color={"white"} />
+              <MagicSpinner loading={isLoading} size={25} color={"white"} />
             ) : (
               "Signup"
             )}

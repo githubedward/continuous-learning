@@ -1,3 +1,4 @@
 export const TOGGLE_LOADER = "TOGGLE_LOADER";
 
 export const VALIDATED_USER = "VALIDATED_USER";
+export const USER_LOGOUT = "USER_LOGOUT";

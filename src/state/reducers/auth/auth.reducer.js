@@ -9,7 +9,8 @@ import {
   LINK_SIGNUP,
   REQUEST_LOGIN,
   RECEIVE_TOKEN,
-  AUTHENTICATED
+  AUTHENTICATED,
+  AUTH_LOGOUT
 } from "../../actions/auth/auth.types";
 
 export default function auth(
@@ -100,6 +101,12 @@ export default function auth(
         ...state,
         isSignedUp: true,
         isLoggedIn: true
+      };
+    case AUTH_LOGOUT:
+      return {
+        ...state,
+        isSignedUp: true,
+        isLoggedIn: false
       };
     default:
       return state;

@@ -15,9 +15,23 @@ class App extends Component {
     if (!token)
       setTimeout(() => {
         this.props.toggleLoader(false);
-      }, 2000);
+      }, 1500);
     else this.props.validateToken(token);
   }
+
+  componentDidUpdate() {
+    const token = localStorage.getItem("token");
+    if (token && !this.props.user.fullname) this.props.validateToken(token);
+    else if (this.props.isPageLoading)
+      setTimeout(() => {
+        this.props.toggleLoader(false);
+      }, 1500);
+  }
+
+  // shouldComponentUpdate(nextProps) {
+  //   if (this.props.user.fullname) return nextProps.user !== this.props.user;
+  //   else return nextProps !== this.props;
+  // }
 
   render() {
     const { isSignedUp, isLoggedIn, isPageLoading } = this.props;
@@ -38,13 +52,14 @@ class App extends Component {
 
 const mapStateToProps = state => {
   const { isLoading: isAuthLoading, isLoggedIn, isSignedUp } = state.auth;
-  const { isPageLoading } = state.main;
+  const { isPageLoading, user } = state.main;
 
   return {
     isAuthLoading,
     isLoggedIn,
     isSignedUp,
-    isPageLoading
+    isPageLoading,
+    user
   };
 };
 

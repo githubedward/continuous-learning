@@ -14,3 +14,4 @@ export const REQUEST_LOGIN = "REQUEST_LOGIN";
 export const RECEIVE_TOKEN = "RECEIVE_TOKEN";
 
 export const AUTHENTICATED = "AUTHENTICATED";
+export const AUTH_LOGOUT = "AUTH_LOGOUT";

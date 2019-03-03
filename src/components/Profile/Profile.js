@@ -11,7 +11,7 @@ const StyledProfile = styled.div`
   align-items: center;
 `;
 
-const Profile = ({ user }) => {
+const Profile = ({ user, logout }) => {
   const btnTheme = {
     margin: "1rem 0 0 0",
     color: styleGuides.darkgray,
@@ -33,6 +33,9 @@ const Profile = ({ user }) => {
       <h2>{user.fullname}</h2>
       <ThemeProvider theme={btnTheme}>
         <Button>Edit</Button>
+      </ThemeProvider>
+      <ThemeProvider theme={btnTheme}>
+        <Button onClick={logout}>Logout</Button>
       </ThemeProvider>
     </StyledProfile>
   );

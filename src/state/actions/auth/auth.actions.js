@@ -1,6 +1,8 @@
 import * as types from "./auth.types";
 import axios from "axios";
 import * as helper from "../../../helpers/functions";
+import { toggleLoader } from "../main/main.actions";
+import { userLogout } from "../main/main.actions";
 
 const API_URL = process.env.REACT_APP_DEV_API_URL;
 
@@ -102,6 +104,7 @@ export const handleLogin = data => {
           .then(resp => {
             dispatch(receiveToken(resp.data.token));
             localStorage.setItem("token", resp.data.token);
+            dispatch(toggleLoader(true));
           })
           .catch(err => dispatch(updateStatus(err.response.data.msg)));
       }, 1000);
@@ -112,5 +115,19 @@ export const handleLogin = data => {
 export const authenticated = () => {
   return {
     type: types.AUTHENTICATED
+  };
+};
+
+const authLogout = () => {
+  return {
+    type: types.AUTH_LOGOUT
+  };
+};
+
+export const logout = () => {
+  localStorage.removeItem("token");
+  return function(dispatch) {
+    dispatch(authLogout());
+    dispatch(userLogout());
   };
 };

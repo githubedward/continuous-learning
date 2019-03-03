@@ -10,11 +10,13 @@ exports[`<Login /> should match the snapshot 1`] = `
       color="#B4B4B4"
     >
       <styled.span
+        color="#B4B4B4"
         fontWeight="bold"
       >
         Login
       </styled.span>
-       to find and share beautiful experiences
+       
+      to find and share beautiful experiences
     </styled.span>
   </styled.h1>
   <styled.form
@@ -43,8 +45,9 @@ exports[`<Login /> should match the snapshot 1`] = `
           "bgc": "#ed4949",
           "borderColor": "#ed4949",
           "color": "white",
-          "fontSize": "1.25rem",
+          "fontSize": "1.5rem",
           "fweight": 500,
+          "height": "3rem",
           "hoverbgc": "#ff3030",
           "margin": "3rem 0 0 0",
           "padding": ".5rem 1rem",

@@ -29,8 +29,10 @@ const Login = ({
       <BrandName size={"3.5rem"} />
       <H1>
         <Span color={styleGuides.gray}>
-          <Span fontWeight="bold">Login</Span> to find and share beautiful
-          experiences
+          <Span fontWeight="bold" color={styleGuides.gray}>
+            Login
+          </Span>{" "}
+          to find and share beautiful experiences
         </Span>
       </H1>
       <Form
@@ -61,7 +63,7 @@ const Login = ({
         <ThemeProvider theme={btnTheme}>
           <Button>
             {isLoading ? (
-              <MagicSpinner loading={isLoading} size={35} color={"white"} />
+              <MagicSpinner loading={isLoading} size={25} color={"white"} />
             ) : (
               "Login"
             )}

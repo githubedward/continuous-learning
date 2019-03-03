@@ -65,9 +65,10 @@ export const Anchor = styled.a`
 export const btnTheme = {
   margin: "3rem 0 0 0",
   color: "white",
-  fontSize: "1.25rem",
+  fontSize: "1.5rem",
   fweight: styleGuides.medium,
   width: "inherit",
+  height: "3rem",
   padding: ".5rem 1rem",
   bgc: styleGuides.lightred,
   borderColor: styleGuides.lightred,

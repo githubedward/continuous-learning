@@ -27,6 +27,11 @@ const Button = styled.button`
   &:focus {
     outline: none;
   }
+  &:active {
+    background-color: ${p => p.theme.bgc};
+    border: 1px solid ${p => p.theme.borderColor};
+    color: ${p => p.theme.color};
+  }
 `;
 
 export default Button;
