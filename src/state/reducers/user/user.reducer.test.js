@@ -1,14 +1,13 @@
-import auth from "./auth.reducer";
-import * as types from "../../actions/auth/auth.types";
+import user from "./user.reducer";
+import * as types from "../../actions/user/user.types";
 
 const deepFreeze = require("deep-freeze");
 
-describe("auth.reducers", () => {
+describe("user.reducers", () => {
   const initialState = {
-    token: "",
-    username: "",
-    password: "",
-    fullname: "",
+    usernameInput: "",
+    passwordInput: "",
+    fullnameInput: "",
     status: "",
     isSignedUp: false,
     isLoggedIn: false,
@@ -18,7 +17,7 @@ describe("auth.reducers", () => {
   deepFreeze(initialState);
 
   it("should return initial state", () => {
-    expect(auth(initialState, undefined)).toEqual(initialState);
+    expect(user(initialState, undefined)).toEqual(initialState);
   });
 
   it("should handle HANDLE_USERNAME", () => {
@@ -29,9 +28,9 @@ describe("auth.reducers", () => {
     };
     const nextState = {
       ...initialState,
-      username: input
+      usernameInput: input
     };
-    expect(auth(initialState, action)).toEqual(nextState);
+    expect(user(initialState, action)).toEqual(nextState);
   });
 
   it("should handle HANDLE_PASSWORD", () => {
@@ -42,9 +41,9 @@ describe("auth.reducers", () => {
     };
     const nextState = {
       ...initialState,
-      password: input
+      passwordInput: input
     };
-    expect(auth(initialState, action)).toEqual(nextState);
+    expect(user(initialState, action)).toEqual(nextState);
   });
 
   it("should handle HANDLE_FULLNAME", () => {
@@ -55,9 +54,9 @@ describe("auth.reducers", () => {
     };
     const nextState = {
       ...initialState,
-      fullname: input
+      fullnameInput: input
     };
-    expect(auth(initialState, action)).toEqual(nextState);
+    expect(user(initialState, action)).toEqual(nextState);
   });
 
   it("should UPDATE_STATUS", () => {
@@ -71,7 +70,7 @@ describe("auth.reducers", () => {
       status,
       isLoading: false
     };
-    expect(auth(initialState, action)).toEqual(nextState);
+    expect(user(initialState, action)).toEqual(nextState);
   });
 
   it("should HANDLE_SIGNUP", () => {
@@ -89,7 +88,7 @@ describe("auth.reducers", () => {
       ...initialState,
       isLoading: true
     };
-    expect(auth(initialState, action)).toEqual(nextState);
+    expect(user(initialState, action)).toEqual(nextState);
     // test resolve RECEIVE_SIGNUP
     const result = "User successfully registered";
     action = {
@@ -101,9 +100,9 @@ describe("auth.reducers", () => {
       isLoading: false,
       isSignedUp: true,
       status: action.result,
-      fullname: ""
+      fullnameInput: ""
     };
-    expect(auth(initialState, action)).toEqual(nextState);
+    expect(user(initialState, action)).toEqual(nextState);
     // test reject RECEIVE_SIGNUP
   });
 
@@ -121,10 +120,9 @@ describe("auth.reducers", () => {
       ...initialState,
       isLoading: true
     };
-    expect(auth(initialState, action)).toEqual(nextState);
-
+    expect(user(initialState, action)).toEqual(nextState);
     // test receive token
-    const token = "23123d12dc1v.c12cwcev1.c12ec1c";
+    const token = "test";
     action = {
       type: types.RECEIVE_TOKEN,
       token
@@ -134,9 +132,38 @@ describe("auth.reducers", () => {
       isLoggedIn: true,
       isLoading: false,
       status: "",
-      username: "",
-      password: ""
+      usernameInput: "",
+      passwordInput: ""
     };
-    expect(auth(initialState, action)).toEqual(nextState);
+    expect(user(initialState, action)).toEqual(nextState);
+  });
+  it("should receive user info when authenticated", () => {
+    const userInfo = {
+      username: "test",
+      fullname: "Test"
+    };
+    const action = {
+      type: types.AUTHENTICATED,
+      user: userInfo
+    };
+    const nextState = {
+      ...initialState,
+      isSignedUp: true,
+      isLoggedIn: true,
+      user: action.user
+    };
+    expect(user(initialState, action)).toEqual(nextState);
+  });
+  it("should logout", () => {
+    const action = {
+      type: types.LOGOUT
+    };
+    const nextState = {
+      ...initialState,
+      user: {},
+      isSignedUp: true,
+      isLoggedIn: false
+    };
+    expect(user(initialState, action)).toEqual(nextState);
   });
 });

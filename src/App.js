@@ -7,7 +7,8 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import "./themes/index.css";
 import PageLoader from "./components/shared/PageLoader";
-import { validateToken, toggleLoader } from "./state/actions/main/main.actions";
+import { toggleLoader } from "./state/actions/main/main.actions";
+import { validateToken } from "./state/actions/user/user.actions";
 
 class App extends Component {
   componentDidMount() {
@@ -51,8 +52,8 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  const { isLoading: isAuthLoading, isLoggedIn, isSignedUp } = state.auth;
-  const { isPageLoading, user } = state.main;
+  const { isLoading: isAuthLoading, isLoggedIn, isSignedUp, user } = state.user;
+  const { isPageLoading } = state.main;
 
   return {
     isAuthLoading,

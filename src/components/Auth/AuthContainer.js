@@ -9,21 +9,21 @@ import {
   updateStatus,
   linkLogin,
   linkSignup
-} from "../../state/actions/auth/auth.actions";
+} from "../../state/actions/user/user.actions";
 import Signup from "./Signup/Signup";
 import Login from "./Login/Login";
 
 const mapStateToProps = state => {
   const {
-    fullname,
-    username,
-    password,
+    fullnameInput: fullname,
+    usernameInput: username,
+    passwordInput: password,
     status,
     token,
     isSignedUp,
     isLoggedIn,
     isLoading
-  } = state.auth;
+  } = state.user;
   return {
     username,
     password,

@@ -10,18 +10,19 @@ import {
   REQUEST_LOGIN,
   RECEIVE_TOKEN,
   AUTHENTICATED,
-  AUTH_LOGOUT
-} from "../../actions/auth/auth.types";
+  LOGOUT
+} from "../../actions/user/user.types";
 
-export default function auth(
+export default function user(
   state = {
-    username: "",
-    password: "",
-    fullname: "",
+    usernameInput: "",
+    passwordInput: "",
+    fullnameInput: "",
     status: "",
     isSignedUp: false,
     isLoggedIn: false,
-    isLoading: false
+    isLoading: false,
+    user: {}
   },
   action
 ) {
@@ -30,43 +31,43 @@ export default function auth(
     case HANDLE_FULLNAME:
       return {
         ...state,
-        fullname: action.input
+        fullnameInput: action.input
       };
     case HANDLE_USERNAME:
       return {
         ...state,
-        username: action.input
+        usernameInput: action.input
       };
     case HANDLE_PASSWORD:
       return {
         ...state,
-        password: action.input
+        passwordInput: action.input
       };
     case UPDATE_STATUS:
       return {
         ...state,
         status: action.status,
         isLoading: false,
-        password: "",
-        fullname: ""
+        passwordInput: "",
+        fullnameInput: ""
       };
     case LINK_LOGIN:
       return {
         ...state,
         isSignedUp: true,
         status: "",
-        username: "",
-        password: "",
-        fullname: ""
+        usernameInput: "",
+        passwordInput: "",
+        fullnameInput: ""
       };
     case LINK_SIGNUP:
       return {
         ...state,
         isSignedUp: false,
         status: "",
-        username: "",
-        password: "",
-        fullname: ""
+        usernameInput: "",
+        passwordInput: "",
+        fullnameInput: ""
       };
     case REQUEST_SIGNUP:
       return {
@@ -79,8 +80,8 @@ export default function auth(
         isLoading: false,
         isSignedUp: true,
         status: action.result,
-        fullname: "",
-        password: ""
+        fullnameInput: "",
+        passwordInput: ""
       };
     case REQUEST_LOGIN:
       return {
@@ -93,18 +94,20 @@ export default function auth(
         isLoading: false,
         isLoggedIn: true,
         status: "",
-        username: "",
-        password: ""
+        usernameInput: "",
+        passwordInput: ""
       };
     case AUTHENTICATED:
       return {
         ...state,
         isSignedUp: true,
-        isLoggedIn: true
+        isLoggedIn: true,
+        user: action.user
       };
-    case AUTH_LOGOUT:
+    case LOGOUT:
       return {
         ...state,
+        user: {},
         isSignedUp: true,
         isLoggedIn: false
       };

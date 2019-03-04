@@ -1,9 +1,9 @@
 import Profile from "./Profile";
 import { connect } from "react-redux";
-import { logout } from "../../state/actions/auth/auth.actions";
+import { logout } from "../../state/actions/user/user.actions";
 
 const mapStateToProps = state => {
-  const { user } = state.main;
+  const { user } = state.user;
   return {
     user
   };

@@ -14,17 +14,6 @@ export default function main(
         ...state,
         isPageLoading: action.bool
       };
-    case types.VALIDATED_USER:
-      return {
-        ...state,
-        isPageLoading: false,
-        user: action.user
-      };
-    case types.USER_LOGOUT:
-      return {
-        ...state,
-        user: {}
-      };
     default:
       return state;
   }
