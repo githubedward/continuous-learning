@@ -22,7 +22,10 @@ export default function user(
     isSignedUp: false,
     isLoggedIn: false,
     isLoading: false,
-    user: {}
+    user: {
+      username: "",
+      fullname: ""
+    }
   },
   action
 ) {
@@ -94,7 +97,6 @@ export default function user(
         isLoading: false,
         isLoggedIn: true,
         status: "",
-        usernameInput: "",
         passwordInput: ""
       };
     case AUTHENTICATED:

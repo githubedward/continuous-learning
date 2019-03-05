@@ -16,7 +16,7 @@ class App extends Component {
     if (!token)
       setTimeout(() => {
         this.props.toggleLoader(false);
-      }, 1500);
+      }, 100);
     else this.props.validateToken(token);
   }
 
@@ -26,7 +26,7 @@ class App extends Component {
     else if (this.props.isPageLoading)
       setTimeout(() => {
         this.props.toggleLoader(false);
-      }, 1500);
+      }, 100);
   }
 
   // shouldComponentUpdate(nextProps) {

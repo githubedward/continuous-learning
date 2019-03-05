@@ -136,7 +136,7 @@ export const validateToken = token => {
           console.log(err);
           dispatch(toggleLoader(false));
         });
-    }, 2000);
+    }, 100);
   };
 };
 

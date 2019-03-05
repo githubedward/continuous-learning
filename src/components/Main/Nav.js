@@ -19,7 +19,7 @@ const StyledNav = styled.div`
 
 const Nav = () => {
   const iconSize = "2rem";
-  const icons = ["place", "speaker_notes", "people", "person"];
+  const icons = ["place", "speaker_notes", "group", "person"];
   return (
     <StyledNav>
       {icons.map((name, i) => (

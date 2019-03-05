@@ -49,13 +49,13 @@ exports[`<Signup /> should match the snapshot 1`] = `
     <ThemeProvider
       theme={
         Object {
-          "bgc": "#ed4949",
-          "borderColor": "#ed4949",
+          "bgc": "#F3615C",
+          "borderColor": "#F3615C",
           "color": "white",
           "fontSize": "1.5rem",
           "fweight": 500,
           "height": "3rem",
-          "hoverbgc": "#ff3030",
+          "hoverbgc": "#ed4949",
           "margin": "3rem 0 0 0",
           "padding": ".5rem 1rem",
           "width": "inherit",

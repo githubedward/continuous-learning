@@ -6,8 +6,8 @@ export const light = 300;
 export const medium = 500;
 
 // colors
-export const lightred = "#ed4949";
-export const red = "#ff3030";
+export const lightred = "#F3615C";
+export const red = "#ed4949";
 export const superdarkgray = "#333333";
 export const darkgray = "#888888";
 export const gray = "#B4B4B4";

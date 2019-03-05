@@ -1,52 +1,23 @@
 import React from "react";
-import styled, { ThemeProvider } from "styled-components";
-import Icon from "../shared/Icon";
-import PropTypes from "prop-types";
-import Button from "../shared/Button";
-import * as styleGuides from "../shared/style-variables";
+import styled from "styled-components";
+import ProfileInfo from "./ProfileInfo/ProfileInfo";
+// import * as styleGuides from "../shared/style-variables";
 
 const StyledProfile = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: baseline;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
 `;
 
-const Profile = ({ user, logout }) => {
-  const btnTheme = {
-    margin: "1rem 0 0 0",
-    color: styleGuides.darkgray,
-    fontSize: "1rem",
-    width: "inherit",
-    padding: "0rem 1rem",
-    bgc: "white",
-    borderColor: styleGuides.gray,
-    hoverbgc: styleGuides.lightred,
-    fweight: styleGuides.light,
-    height: "3rem",
-    hoverbc: styleGuides.lightred,
-    hovercolor: "white"
-  };
-
+const Profile = props => {
   return (
     <StyledProfile>
-      <Icon icon="person" fontSize="5rem" />
-      <h2>{user.fullname}</h2>
-      <ThemeProvider theme={btnTheme}>
-        <Button>Edit</Button>
-      </ThemeProvider>
-      <ThemeProvider theme={btnTheme}>
-        <Button onClick={logout}>Logout</Button>
-      </ThemeProvider>
+      <ProfileInfo {...props} />
     </StyledProfile>
   );
-};
-
-Profile.propTypes = {
-  fullname: PropTypes.string.isRequired
-};
-
-Profile.defaultProps = {
-  fullname: "default"
 };
 
 export default Profile;
