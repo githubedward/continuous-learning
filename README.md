@@ -5,6 +5,7 @@ Current features:
 - Signup page
 - Login page
 - Main page (Header, Nav, Route Display)
+- Profile page
 
 ### Available Scripts
 
