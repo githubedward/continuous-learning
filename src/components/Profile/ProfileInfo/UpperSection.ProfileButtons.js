@@ -30,7 +30,7 @@ const ProfileButtons = ({ logout, toggleEditProfile }) => {
   return (
     <StyledButtonsDiv>
       <ThemeProvider theme={btnTheme}>
-        <Button onClick={toggleEditProfile}>Edit Profile</Button>
+        <Button onClick={() => toggleEditProfile(true)}>Edit Profile</Button>
       </ThemeProvider>
       <ThemeProvider theme={btnTheme}>
         <Button onClick={logout} style={{ marginLeft: ".9rem" }}>

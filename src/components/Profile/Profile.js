@@ -1,11 +1,14 @@
 import React from "react";
-import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import PageContainer from "../shared/PageContainer";
+import LowerSection from "./ProfileInfo/LowerSection";
+import UpperSection from "./ProfileInfo/UpperSection";
+// import styled from "styled-components";
 
 const Profile = props => {
   return (
     <PageContainer padding="1rem" justifyContent="baseline">
-      <ProfileInfo {...props} />
+      <UpperSection {...props} />
+      <LowerSection {...props} />
     </PageContainer>
   );
 };
