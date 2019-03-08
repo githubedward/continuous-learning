@@ -67,12 +67,12 @@ export const handleSignup = data => {
       dispatch(updateStatus("All fields are required."));
     } else {
       dispatch(requestsSignup(data));
-      setTimeout(() => {
+      helper.delay(1000).then(() => {
         axios
           .post(`${API_URL}/register`, data)
           .then(resp => dispatch(receiveSignup(resp.data.msg)))
           .catch(err => dispatch(updateStatus(err.response.data.msg)));
-      }, 1000);
+      });
     }
   };
 };
@@ -97,7 +97,7 @@ export const handleLogin = data => {
       dispatch(updateStatus("All fields are required."));
     } else {
       dispatch(requestLogin(data));
-      setTimeout(() => {
+      helper.delay(1000).then(() => {
         axios
           .post(`${API_URL}/login`, data)
           .then(resp => {
@@ -106,7 +106,7 @@ export const handleLogin = data => {
             dispatch(toggleLoader(true));
           })
           .catch(err => dispatch(updateStatus(err.response.data.msg)));
-      }, 1000);
+      });
     }
   };
 };

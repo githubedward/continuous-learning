@@ -2,13 +2,15 @@ import styled from "styled-components";
 import * as styleGuides from "./style-variables";
 
 const Container = styled.section`
-  height: inherit;
-  width: inherit;
+  height: ${p => p.height || "inherit"};
+  width: ${p => p.width || "inherit"};
 
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  flex-direction: ${p => p.flexDirection || "column"};
+  justify-content: ${p => p.justifyContent || "center"};
+  align-items: ${p => p.alignItems || "center"};
+
+  padding: ${p => p.padding};
 
   animation: ${styleGuides.appear} 500ms ease-in;
 `;

@@ -3,13 +3,9 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import * as styleGuides from "../../shared/style-variables";
 import Icon from "../../shared/Icon";
-
-const StyledContainer = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: inherit;
-`;
+import Anchor from "../../shared/Anchor";
+import EditProfileForm from "./EditProfileForm";
+import PageContainer from "../../shared/PageContainer";
 
 const StyledProfilePhoto = styled.div`
   display: flex;
@@ -21,15 +17,18 @@ const StyledProfilePhoto = styled.div`
   background-color: ${styleGuides.lightred};
   padding: 1rem 0;
   width: 30%;
+  margin: 0 0 1rem 0;
 `;
 
 const EditProfile = props => {
   return (
-    <StyledContainer>
+    <PageContainer>
       <StyledProfilePhoto>
         <Icon icon="person" fontSize="5rem" color="white" />
       </StyledProfilePhoto>
-    </StyledContainer>
+      <Anchor>Edit</Anchor>
+      <EditProfileForm {...props} />
+    </PageContainer>
   );
 };
 

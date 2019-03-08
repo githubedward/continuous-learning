@@ -9,24 +9,22 @@ import "./themes/index.css";
 import PageLoader from "./components/shared/PageLoader";
 import { toggleLoader } from "./state/actions/main/main.actions";
 import { validateToken } from "./state/actions/user/user.actions";
+import * as helper from "./helpers/functions";
 
 class App extends Component {
   componentDidMount() {
     const token = localStorage.getItem("token");
     if (!token)
-      setTimeout(() => {
-        this.props.toggleLoader(false);
-      }, 100);
-    else this.props.validateToken(token);
+      return helper.delay(750).then(() => this.props.toggleLoader(false));
+    else return helper.delay(750).then(() => this.props.validateToken(token));
   }
 
   componentDidUpdate() {
     const token = localStorage.getItem("token");
-    if (token && !this.props.user.fullname) this.props.validateToken(token);
+    if (token && !this.props.user.fullname)
+      return helper.delay(750).then(() => this.props.validateToken(token));
     else if (this.props.isPageLoading)
-      setTimeout(() => {
-        this.props.toggleLoader(false);
-      }, 100);
+      return helper.delay(750).then(() => this.props.toggleLoader(false));
   }
 
   // shouldComponentUpdate(nextProps) {

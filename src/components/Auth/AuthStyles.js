@@ -11,7 +11,6 @@ export const Form = styled.form`
   padding: 2rem 2.5rem;
   background: #ffffff95;
   border-radius: 3px;
-  animation: ${styleGuides.appear} 500ms ease-in;
 `;
 export const H1 = styled.h1`
   margin: 1rem 0;
@@ -54,13 +53,6 @@ export const Footer = styled.footer`
   margin-top: 3rem;
   color: ${styleGuides.superdarkgray};
   font-size: 1rem;
-`;
-export const Anchor = styled.a`
-  color: ${styleGuides.blue};
-  cursor: pointer;
-  &:hover {
-    text-decoration: underline;
-  }
 `;
 export const btnTheme = {
   margin: "3rem 0 0 0",

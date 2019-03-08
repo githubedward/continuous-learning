@@ -2,14 +2,15 @@ import React, { Component } from "react";
 import EditProfile from "./EditProfile";
 import { connect } from "react-redux";
 
-class EditProfileContainer extends Component {
-  render() {
-    return <EditProfile />;
-  }
-}
+// class EditProfileContainer extends Component {
+//   render() {
+//     return <EditProfile {...props} />;
+//   }
+// }
 
 const mapStateToProps = state => {
-  return {};
+  const { user } = state.user;
+  return { user };
 };
 
 const mapDispatchToProps = dispatch => {
@@ -19,4 +20,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(EditProfileContainer);
+)(EditProfile);

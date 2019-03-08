@@ -19,7 +19,6 @@ const mapStateToProps = state => {
     usernameInput: username,
     passwordInput: password,
     status,
-    token,
     isSignedUp,
     isLoggedIn,
     isLoading
@@ -29,7 +28,6 @@ const mapStateToProps = state => {
     password,
     fullname,
     status,
-    token,
     isSignedUp,
     isLoggedIn,
     isLoading

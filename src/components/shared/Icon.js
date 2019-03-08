@@ -1,7 +1,7 @@
 import React from "react";
 import Radium from "radium";
 import styled from "styled-components";
-// import * as styleGuides from "../shared/style-variables";
+import * as styleGuides from "../shared/style-variables";
 
 const StyledIcon = styled.div`
   width: ${p => p.width};

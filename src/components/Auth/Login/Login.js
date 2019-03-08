@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { H1, Form, Input, Span, Footer, Anchor, Status } from "../AuthStyles";
+import { H1, Form, Input, Span, Footer, Status } from "../AuthStyles";
+import Anchor from "../../shared/Anchor";
 import PageContainer from "../../shared/PageContainer";
 import BrandName from "../../shared/BrandName";
 import * as styleGuides from "../../shared/style-variables";
