@@ -2,8 +2,7 @@ import * as types from "../../actions/main/main.types";
 
 export default function main(
   state = {
-    isPageLoading: true,
-    user: {}
+    isPageLoading: true
   },
   action
 ) {

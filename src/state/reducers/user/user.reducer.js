@@ -10,7 +10,8 @@ import {
   REQUEST_LOGIN,
   RECEIVE_TOKEN,
   AUTHENTICATED,
-  LOGOUT
+  LOGOUT,
+  UPDATE_USER
 } from "../../actions/user/user.types";
 
 export default function user(
@@ -112,6 +113,11 @@ export default function user(
         user: {},
         isSignedUp: true,
         isLoggedIn: false
+      };
+    case UPDATE_USER:
+      return {
+        ...state,
+        user: action.data
       };
     default:
       return state;

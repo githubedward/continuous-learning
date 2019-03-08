@@ -8,6 +8,7 @@ import { toggleEditProfile } from "../../state/actions/profile/profile.actions";
 class ProfileContainer extends Component {
   render() {
     const { props } = this;
+    // return <EditProfile {...props} />;
     return !props.profile.editProfile ? (
       <Profile {...props} />
     ) : (

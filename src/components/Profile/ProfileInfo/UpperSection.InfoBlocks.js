@@ -32,7 +32,7 @@ const InfoBlock = ({ num, title }) => {
 
 const InfoBlocks = props => {
   const titles = ["Pins", "Posts", "Followers"];
-  const num = [1, 2, 3];
+  const num = [0, 0, 0];
   return (
     <StyledInfoBlocks>
       {titles.map((title, i) => (

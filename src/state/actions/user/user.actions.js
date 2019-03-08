@@ -146,3 +146,10 @@ export const logout = () => {
     type: types.LOGOUT
   };
 };
+
+export const updateUser = data => {
+  return {
+    type: types.UPDATE_USER,
+    data
+  };
+};

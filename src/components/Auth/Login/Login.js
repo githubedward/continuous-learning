@@ -1,12 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { H1, Form, Input, Span, Footer, Status } from "../AuthStyles";
+import { H1, Span, Footer, Status } from "../AuthStyles";
 import Anchor from "../../shared/Anchor";
 import PageContainer from "../../shared/PageContainer";
 import BrandName from "../../shared/BrandName";
 import * as styleGuides from "../../shared/style-variables";
 import { MagicSpinner } from "react-spinners-kit";
 import Button from "../../shared/Button";
+import { Form, Input, input } from "../../shared/FormComponents";
 import { ThemeProvider } from "styled-components";
 import { btnTheme } from "../AuthStyles";
 
@@ -41,25 +42,14 @@ const Login = ({
           e.preventDefault();
           handleLogin(data);
         }}
+        padding="2rem 2.5rem"
       >
-        <Input
-          type="text"
-          name="username"
-          placeholder="Username"
-          value={username}
-          onChange={e => {
-            handleUsername(e.target.value);
-          }}
-        />
-        <Input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={password}
-          onChange={e => {
-            handlePassword(e.target.value);
-          }}
-        />
+        {input("text", "username", "Username", username, e => {
+          handleUsername(e.target.value);
+        })}
+        {input("password", "password", "Password", password, e => {
+          handlePassword(e.target.value);
+        })}
         <Status>{status}</Status>
         <ThemeProvider theme={btnTheme}>
           <Button>
