@@ -1,5 +1,5 @@
 import * as types from "./profile.types";
-import { authenticated } from "../../actions/user/user.actions";
+import { updateUser } from "../../actions/user/user.actions";
 import { toggleLoader } from "../../actions/main/main.actions";
 import * as helper from "../../../helpers/functions";
 import axios from "axios";
@@ -28,10 +28,10 @@ export const saveProfileChanges = data => {
       oldUsername: user.username,
       ...data
     };
-    alert(JSON.stringify(newUser));
     await helper.delay(500);
     const resp = await axios.post(`${API_URL}/update-user`, newUser);
-    dispatch(authenticated(resp.data));
+    dispatch(updateUser(resp.data.user));
+    localStorage.setItem("token", resp.data.token);
     dispatch(editProfile(false));
     dispatch(toggleLoader(false));
   };

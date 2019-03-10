@@ -117,7 +117,8 @@ export default function user(
     case UPDATE_USER:
       return {
         ...state,
-        user: action.data
+        user: action.data,
+        usernameInput: action.data.username
       };
     default:
       return state;
