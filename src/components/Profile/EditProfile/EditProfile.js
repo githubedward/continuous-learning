@@ -4,8 +4,9 @@ import styled from "styled-components";
 import * as styleGuides from "../../shared/style-variables";
 import Icon from "../../shared/Icon";
 import Anchor from "../../shared/Anchor";
-import EditProfileForm from "./EditProfileForm";
+import EditProfileForm from "./EditProfileForm/EditProfileForm";
 import PageContainer from "../../shared/PageContainer";
+import submit from "./EditProfileForm/submit";
 
 const StyledProfilePhoto = styled.div`
   display: flex;
@@ -27,7 +28,7 @@ const EditProfile = props => {
         <Icon icon="person" fontSize="5rem" color="white" />
       </StyledProfilePhoto>
       <Anchor>Edit</Anchor>
-      <EditProfileForm {...props} />
+      <EditProfileForm {...props} onSubmit={props.saveProfileChanges} />
     </PageContainer>
   );
 };

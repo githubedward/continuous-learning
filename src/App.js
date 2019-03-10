@@ -21,9 +21,10 @@ class App extends Component {
 
   componentDidUpdate() {
     const token = localStorage.getItem("token");
-    if (token && !this.props.user.fullname)
+    if (token && !this.props.user.fullname) {
+      alert("did update!");
       return helper.delay(750).then(() => this.props.validateToken(token));
-    else if (this.props.isPageLoading)
+    } else if (this.props.isPageLoading)
       return helper.delay(750).then(() => this.props.toggleLoader(false));
   }
 

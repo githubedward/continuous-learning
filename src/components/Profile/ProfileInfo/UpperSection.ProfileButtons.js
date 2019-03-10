@@ -12,7 +12,7 @@ const StyledButtonsDiv = styled.div`
   width: 100%;
 `;
 
-const ProfileButtons = ({ logout, toggleEditProfile }) => {
+const ProfileButtons = ({ logout, editProfile }) => {
   const btnTheme = {
     margin: "1rem 0 0 0",
     color: styleGuides.darkgray,
@@ -30,7 +30,7 @@ const ProfileButtons = ({ logout, toggleEditProfile }) => {
   return (
     <StyledButtonsDiv>
       <ThemeProvider theme={btnTheme}>
-        <Button onClick={() => toggleEditProfile(true)}>Edit Profile</Button>
+        <Button onClick={() => editProfile(true)}>Edit Profile</Button>
       </ThemeProvider>
       <ThemeProvider theme={btnTheme}>
         <Button onClick={logout} style={{ marginLeft: ".9rem" }}>

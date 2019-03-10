@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { H1, Span, Footer, Status } from "../AuthStyles";
+import { H1, Footer, Status } from "../AuthStyles";
 import Anchor from "../../shared/Anchor";
 import PageContainer from "../../shared/PageContainer";
 import BrandName from "../../shared/BrandName";
 import * as styleGuides from "../../shared/style-variables";
 import { MagicSpinner } from "react-spinners-kit";
 import Button from "../../shared/Button";
-import { Form, Input, input } from "../../shared/FormComponents";
+import { Form, input, Span } from "../../shared/FormComponents";
 import { ThemeProvider } from "styled-components";
 import { btnTheme } from "../AuthStyles";
 

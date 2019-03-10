@@ -9,10 +9,6 @@ export const H1 = styled.h1`
   font-weight: normal;
   padding: 0rem 2rem;
 `;
-export const Span = styled.span`
-  font-weight: ${p => p.fontWeight};
-  color: ${p => p.color};
-`;
 export const Status = styled.span`
   color: red;
   margin-top: 1rem;

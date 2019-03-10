@@ -2,7 +2,8 @@ import * as profileTypes from "../../actions/profile/profile.types";
 
 export default function profile(
   state = {
-    editProfile: false
+    editProfile: false,
+    editProfilePhoto: false
   },
   action
 ) {
@@ -12,6 +13,11 @@ export default function profile(
       return {
         ...state,
         editProfile: action.bool
+      };
+    case profileTypes.EDIT_PROFILE_PHOTO:
+      return {
+        ...state,
+        editProfilePhoto: action.bool
       };
     default:
       return state;

@@ -22,6 +22,11 @@ export const Label = styled.label`
   margin: 0.5rem;
 `;
 
+export const Span = styled.span`
+  font-weight: ${p => p.fontWeight || styleGuides.lighter};
+  color: ${p => p.color};
+`;
+
 export const Input = styled.input`
   width: ${p => p.width || "inherit"};
   margin: 0.5rem;

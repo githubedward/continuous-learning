@@ -1,6 +1,7 @@
 ## This personal project is currently being developed using reactjs, async redux, styled-components, and jest-enzyme for unit testing.
 
 Current features:
+Mobile App Simulation
 
 - Signup page
 - Login page

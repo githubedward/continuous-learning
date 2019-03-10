@@ -3,7 +3,10 @@ import Profile from "./Profile";
 import EditProfile from "./EditProfile/EditProfile";
 import { connect } from "react-redux";
 import { logout } from "../../state/actions/user/user.actions";
-import { toggleEditProfile } from "../../state/actions/profile/profile.actions";
+import {
+  editProfile,
+  saveProfileChanges
+} from "../../state/actions/profile/profile.actions";
 
 class ProfileContainer extends Component {
   render() {
@@ -29,7 +32,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     logout: () => dispatch(logout()),
-    toggleEditProfile: bool => dispatch(toggleEditProfile(bool))
+    editProfile: bool => dispatch(editProfile(bool)),
+    saveProfileChanges: data => dispatch(saveProfileChanges(data))
   };
 };
 
