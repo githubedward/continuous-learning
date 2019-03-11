@@ -7,6 +7,8 @@ const Anchor = styled.a`
   &:hover {
     text-decoration: underline;
   }
+
+  animation: ${styleGuides.appear} 500ms ease-in;
 `;
 
 export default Anchor;

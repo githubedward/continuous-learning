@@ -7,7 +7,7 @@ import styled, { ThemeProvider } from "styled-components";
 import * as styleGuides from "../../../shared/style-variables";
 import validate from "./validate";
 
-const btnTheme = {
+export const btnTheme = {
   margin: "1rem .5rem 0 .5rem",
   color: styleGuides.darkgray,
   fontSize: ".8rem",
@@ -21,7 +21,7 @@ const btnTheme = {
   hovercolor: "white"
 };
 
-const StyledButtonsDiv = styled.div`
+export const StyledButtonsDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: baseline;
@@ -47,24 +47,29 @@ const renderField = ({
   label,
   type,
   placeholder,
-  meta: { touched, error, warning }
+  disabled,
+  meta: { touched, error, warning },
+  editProfilePhoto
 }) => {
   return (
     <FormBlock>
-      <Label>{label}</Label>
+      <Label disabled={disabled}>{label}</Label>
       <div>
         <Input
+          disabled={disabled}
           width="100%"
           border={`1px solid ${styleGuides.lightgray}`}
           {...input}
           placeholder={placeholder}
           type={type}
         />
-        <ErrorBlock>
-          {touched &&
-            ((error && <Span color="red">{error}</Span>) ||
-              (warning && <Span color="red">{warning}</Span>))}
-        </ErrorBlock>
+        {!editProfilePhoto ? (
+          <ErrorBlock>
+            {touched &&
+              ((error && <Span color="red">{error}</Span>) ||
+                (warning && <Span color="red">{warning}</Span>))}
+          </ErrorBlock>
+        ) : null}
       </div>
     </FormBlock>
   );
@@ -72,12 +77,19 @@ const renderField = ({
 
 const EditProfileForm = props => {
   const { username, fullname } = props.user;
-  const { editProfile, handleSubmit, pristine, submitting } = props;
-
-  console.log(props);
+  const {
+    editProfile,
+    handleSubmit,
+    pristine,
+    submitting,
+    changedAvatar
+  } = props;
+  const { editProfilePhoto } = props.profile;
   return (
     <Form onSubmit={handleSubmit} margin="1rem 0 0 0" padding="1rem">
       <Field
+        disabled={editProfilePhoto}
+        editProfilePhoto={editProfilePhoto}
         name="username"
         type="text"
         label="Username"
@@ -85,6 +97,8 @@ const EditProfileForm = props => {
         component={renderField}
       />
       <Field
+        disabled={editProfilePhoto}
+        editProfilePhoto={editProfilePhoto}
         name="fullname"
         type="text"
         label="Full Name"
@@ -93,12 +107,23 @@ const EditProfileForm = props => {
       />
       <StyledButtonsDiv>
         <ThemeProvider theme={btnTheme}>
-          <Button type="submit" disabled={pristine || submitting}>
+          <Button
+            type="submit"
+            disabled={
+              changedAvatar && !editProfilePhoto
+                ? false
+                : editProfilePhoto || (pristine || submitting)
+            }
+          >
             Save
           </Button>
         </ThemeProvider>
         <ThemeProvider theme={btnTheme}>
-          <Button type="button" onClick={() => editProfile(false)}>
+          <Button
+            type="button"
+            disabled={submitting || editProfilePhoto}
+            onClick={() => editProfile(false)}
+          >
             Cancel
           </Button>
         </ThemeProvider>

@@ -20,6 +20,7 @@ export const Label = styled.label`
   font-weight: ${styleGuides.lighter};
   width: ${p => p.width || "inherit"};
   margin: 0.5rem;
+  color: ${p => (p.disabled && styleGuides.lightgray) || p.color};
 `;
 
 export const Span = styled.span`
@@ -47,7 +48,8 @@ export const Input = styled.input`
 
   ::placeholder {
     font-weight: ${styleGuides.lighter};
-    color: ${styleGuides.darkgray};
+    color: ${p =>
+      (p.disabled && styleGuides.lightgray) || styleGuides.darkgray};
     font-size: 1.25rem;
   }
 `;

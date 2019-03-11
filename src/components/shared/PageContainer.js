@@ -13,6 +13,9 @@ const Container = styled.section`
   padding: ${p => p.padding};
 
   animation: ${styleGuides.appear} 500ms ease-in;
+  background-color: ${p => p.bgcolor};
+
+  position: relative;
 `;
 
 export default Container;

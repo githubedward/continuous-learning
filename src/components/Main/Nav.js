@@ -9,9 +9,9 @@ const StyledNav = styled.div`
   align-items: center;
   width: inherit;
 
-  -webkit-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.5);
-  box-shadow: 0px 0px 15px 1px ${styleGuides.gray};
+  -webkit-box-shadow: 0px 0px 15px 1px ${styleGuides.gray};
+  -moz-box-shadow: 0px 0px 15px 1px ${styleGuides.gray};
+  box-shadow: 0px 0px 5px 2px ${styleGuides.gray};
 
   border-radius: 0 0 30px 30px;
   height: 4rem;

@@ -15,6 +15,19 @@ const StyledUpperSection = styled.section`
   margin-bottom: 1rem;
 `;
 
+export const ProfilePhoto = styled.img`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 7.5rem;
+  border-radius: 50%;
+  border: 2px ${styleGuides.lightgray} solid;
+  margin: 0 0 1rem 0;
+
+  animation: ${styleGuides.appear} 500ms ease-in;
+`;
+
 const StyledLeftDiv = styled.div`
   display: flex;
   justify-content: center;
@@ -36,11 +49,16 @@ const StyledRightDiv = styled.div`
 `;
 
 const UpperSection = props => {
+  const { avatar } = props.user;
+
   return (
     <StyledUpperSection>
-      <StyledLeftDiv>
-        <Icon icon="person" fontSize="5rem" color="white" />
-      </StyledLeftDiv>
+      {(avatar && <ProfilePhoto src={avatar} />) || (
+        <StyledLeftDiv>
+          <Icon icon="person" fontSize="5rem" color="white" />
+        </StyledLeftDiv>
+      )}
+
       <StyledRightDiv>
         <InfoBlocks />
         <ProfileButtons {...props} />

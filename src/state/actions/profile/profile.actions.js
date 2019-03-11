@@ -25,9 +25,11 @@ export const saveProfileChanges = data => {
     dispatch(toggleLoader(true));
     const user = { ...getState().user.user };
     const newUser = {
+      ...user,
       oldUsername: user.username,
       ...data
     };
+    console.log(newUser);
     await helper.delay(500);
     const resp = await axios.post(`${API_URL}/update-user`, newUser);
     dispatch(updateUser(resp.data.user));

@@ -11,7 +11,9 @@ import {
   RECEIVE_TOKEN,
   AUTHENTICATED,
   LOGOUT,
-  UPDATE_USER
+  UPDATE_USER,
+  UPLOAD_AVATAR,
+  REMOVE_AVATAR
 } from "../../actions/user/user.types";
 
 export default function user(
@@ -119,6 +121,22 @@ export default function user(
         ...state,
         user: action.data,
         usernameInput: action.data.username
+      };
+    case UPLOAD_AVATAR:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          avatar: action.url
+        }
+      };
+    case REMOVE_AVATAR:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          avatar: ""
+        }
       };
     default:
       return state;

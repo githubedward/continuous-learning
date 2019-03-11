@@ -17,3 +17,5 @@ export const AUTHENTICATED = "AUTHENTICATED";
 export const LOGOUT = "LOGOUT";
 
 export const UPDATE_USER = "UPDATE_USER";
+export const UPLOAD_AVATAR = "UPLOAD_AVATAR";
+export const REMOVE_AVATAR = "REMOVE_AVATAR";

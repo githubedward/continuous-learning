@@ -181,3 +181,16 @@ export const updateUser = data => {
     data
   };
 };
+
+export const uploadAvatar = url => {
+  return {
+    type: types.UPLOAD_AVATAR,
+    url
+  };
+};
+
+export const removeAvatar = () => {
+  return {
+    type: types.REMOVE_AVATAR
+  };
+};

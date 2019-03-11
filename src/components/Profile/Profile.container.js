@@ -2,10 +2,15 @@ import React, { Component } from "react";
 import Profile from "./Profile";
 import EditProfile from "./EditProfile/EditProfile";
 import { connect } from "react-redux";
-import { logout } from "../../state/actions/user/user.actions";
+import {
+  logout,
+  uploadAvatar,
+  removeAvatar
+} from "../../state/actions/user/user.actions";
 import {
   editProfile,
-  saveProfileChanges
+  saveProfileChanges,
+  editProfilePhoto
 } from "../../state/actions/profile/profile.actions";
 
 class ProfileContainer extends Component {
@@ -33,7 +38,10 @@ const mapDispatchToProps = dispatch => {
   return {
     logout: () => dispatch(logout()),
     editProfile: bool => dispatch(editProfile(bool)),
-    saveProfileChanges: data => dispatch(saveProfileChanges(data))
+    editProfilePhoto: bool => dispatch(editProfilePhoto(bool)),
+    saveProfileChanges: data => dispatch(saveProfileChanges(data)),
+    uploadAvatar: url => dispatch(uploadAvatar(url)),
+    removeAvatar: () => dispatch(removeAvatar())
   };
 };
 

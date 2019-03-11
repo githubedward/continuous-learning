@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 // import GlobalStyle from "./themes/GlobalStyle";
-import AuthContainer from "./components/Auth/AuthContainer";
+import AuthContainer from "./components/Auth/Auth.container";
 import StyledApp from "./themes/StyledApp";
 import Main from "./components/Main/Main";
 import PropTypes from "prop-types";
@@ -15,22 +15,20 @@ class App extends Component {
   componentDidMount() {
     const token = localStorage.getItem("token");
     if (!token)
-      return helper.delay(750).then(() => this.props.toggleLoader(false));
-    else return helper.delay(750).then(() => this.props.validateToken(token));
+      return helper.delay(100).then(() => this.props.toggleLoader(false));
+    else return helper.delay(100).then(() => this.props.validateToken(token));
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps) {
     const token = localStorage.getItem("token");
     if (token && !this.props.user.fullname) {
-      alert("did update!");
-      return helper.delay(750).then(() => this.props.validateToken(token));
-    } else if (this.props.isPageLoading)
-      return helper.delay(750).then(() => this.props.toggleLoader(false));
+      return helper.delay(100).then(() => this.props.validateToken(token));
+    } else if (!token && this.props.isPageLoading)
+      return helper.delay(100).then(() => this.props.toggleLoader(false));
   }
 
   // shouldComponentUpdate(nextProps) {
-  //   if (this.props.user.fullname) return nextProps.user !== this.props.user;
-  //   else return nextProps !== this.props;
+  //   return nextProps !== this.props;
   // }
 
   render() {
