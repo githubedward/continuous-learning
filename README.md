@@ -1,4 +1,4 @@
-## This personal project is currently being developed using reactjs, async redux, styled-components, and jest-enzyme for unit testing.
+## This personal project has been developed using reactjs, async redux, styled-components, and jest-enzyme for unit testing.
 
 Current features:
 Mobile App Simulation
